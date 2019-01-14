@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="编程,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="linux各版本分析 连接服务器 linux 常用命令 权限操作 信息查找 奇怪符号 快捷键 时间同步    linux各版本分析  Linux 的各种版本分析Debian 最好的 最稳定Ubuntu 抄的 debian, 用途广泛, 用户多(我用的是 ubuntu 1604)CentOS 垃圾 工具老旧, 使用不方便  连接服务器（推荐cmder）1$ ssh root@+你的ip linux">
+<meta name="keywords" content="编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux">
+<meta property="og:url" content="https://guojunhao118.github.io/2019/01/14/linux/index.html">
+<meta property="og:site_name" content="郭钧豪的博客">
+<meta property="og:description" content="linux各版本分析 连接服务器 linux 常用命令 权限操作 信息查找 奇怪符号 快捷键 时间同步    linux各版本分析  Linux 的各种版本分析Debian 最好的 最稳定Ubuntu 抄的 debian, 用途广泛, 用户多(我用的是 ubuntu 1604)CentOS 垃圾 工具老旧, 使用不方便  连接服务器（推荐cmder）1$ ssh root@+你的ip linux">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://guojunhao118.github.io/2019/01/14/linux/bg.jpg">
+<meta property="og:updated_time" content="2019-01-14T01:57:33.826Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux">
+<meta name="twitter:description" content="linux各版本分析 连接服务器 linux 常用命令 权限操作 信息查找 奇怪符号 快捷键 时间同步    linux各版本分析  Linux 的各种版本分析Debian 最好的 最稳定Ubuntu 抄的 debian, 用途广泛, 用户多(我用的是 ubuntu 1604)CentOS 垃圾 工具老旧, 使用不方便  连接服务器（推荐cmder）1$ ssh root@+你的ip linux">
+<meta name="twitter:image" content="https://guojunhao118.github.io/2019/01/14/linux/bg.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://guojunhao118.github.io/2019/01/14/linux/">
+
+
+
+
+
+  <title>linux | 郭钧豪的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">郭钧豪的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://guojunhao118.github.io/2019/01/14/linux/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郭钧豪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭钧豪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T09:53:02+08:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/14/linux/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/14/linux/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><a href="#linux各版本分析">linux各版本分析</a></li>
+<li><a href="#连接服务器">连接服务器</a></li>
+<li><a href="#linux常用命令">linux 常用命令</a><ul>
+<li><a href="#权限操作">权限操作</a></li>
+<li><a href="#信息查找">信息查找</a></li>
+<li><a href="#奇怪符号">奇怪符号</a></li>
+<li><a href="#快捷键">快捷键</a></li>
+<li><a href="#时间同步">时间同步</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="linux各版本分析"><a href="#linux各版本分析" class="headerlink" title="linux各版本分析"></a>linux各版本分析</h2><p><img src="/2019/01/14/linux/bg.jpg" alt="你想要输入的替代文字"></p>
+<blockquote>
+<p>Linux 的各种版本分析<br>Debian 最好的 最稳定<br>Ubuntu 抄的 debian, 用途广泛, 用户多(我用的是 ubuntu 1604)<br>CentOS 垃圾 工具老旧, 使用不方便</p>
+</blockquote>
+<h2 id="连接服务器（推荐cmder）"><a href="#连接服务器（推荐cmder）" class="headerlink" title="连接服务器（推荐cmder）"></a>连接服务器（推荐cmder）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh root@+你的ip</span><br></pre></td></tr></table></figure>
+<h2 id="linux-常用命令"><a href="#linux-常用命令" class="headerlink" title="linux 常用命令"></a>linux 常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var 目录里面一般放的都是会变的东西</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pwd</span><br><span class="line">显示现在所处的目录(print working dir)</span><br><span class="line">输入命令时, 可以用 tab 补全</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ cd        // 返回到根目录（root目录）</span><br><span class="line">$ cd /usr   // 改变当前目录</span><br><span class="line">$ cd -      // 返回上一级目录   </span><br><span class="line">//    . 代表当前目录</span><br><span class="line">//    .. 代表上级目录</span><br><span class="line">// cd 不带参数就回到默认的家目录, 与 cd ~ 的效果是一样的</span><br><span class="line">// 每个用户都有一个家目录，默认在 /home/用户名</span><br><span class="line">// root 用户的家目录是 /root</span><br><span class="line"></span><br><span class="line">我们可以在 linux 命令行中使用 nano 这个编辑器, 很方便</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ ls        // 不带参数就显示当前目录下的所有文件</span><br><span class="line">程序可以加选项</span><br><span class="line">$ ls -l     // 显示详细信息</span><br><span class="line">$ ls -h     // 人性化显示文件尺寸</span><br><span class="line">$ ls -ah    // 显示隐藏文件</span><br><span class="line">$ ls -a     // 显示所有文件， 以 . 开头的文件是隐藏文件</span><br><span class="line">还可以带一个目录当参数，这样就会显示这个目录</span><br><span class="line">$ ls /usr</span><br><span class="line">下面两个是等价的</span><br><span class="line">$ ls -l -h</span><br><span class="line">$ ls -lh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir node     // 创建一个目录(后面跟目录名)</span><br><span class="line">$ -p             // 可以一次性创建多层目录</span><br><span class="line">$ mkdir -p a/b/c</span><br><span class="line">$ rmdir          // 只能用来删除一个空目录</span><br><span class="line">【$ rm file】            // 这个命令直接删除东西，很危险，一般不要用</span><br><span class="line">// 删除文件或者目录</span><br><span class="line">$ -f             // 强制删除</span><br><span class="line">$ -r             // 用来递归删除目录</span><br><span class="line">// 组合操作就是 $ remove -rf /root  删除服务器根目录</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">// 我们一般不直接删除，而是移动到一个文件夹</span><br><span class="line"></span><br><span class="line">$ mv             // 移动文件或者文件夹</span><br><span class="line">// 可以用 mv xx /tmp 的方式来将文件放入临时文件夹（/tmp是操作系统提供的临时文件夹，重启会删除里面的所有文件）</span><br><span class="line">$ mv b.txt /tmp</span><br><span class="line">// 也可以用来改名</span><br><span class="line">$ mv a.txt b.txt</span><br><span class="line">$ mv b.txt ../</span><br><span class="line">$ mv b.txt ../gua.txt</span><br></pre></td></tr></table></figure>
+<p>这个是什么？存疑</p>
+<blockquote>
+<p>ls -l /usr/bin/ &gt; b.txt</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$ touch a.txt      // 新建一个文件</span><br><span class="line">$ touch a.gua</span><br><span class="line">如果 a.gua 存在就更新修改时间(不修改内容)</span><br><span class="line">如果 a.gua 不存在就创建文件</span><br><span class="line">$ cp               // 复制出一个文件，用法如下</span><br><span class="line">$ cp a.txt b.txt   // 复制 a.txt 并把新文件取名为 b.txt</span><br><span class="line">$ cp -r dir1 dir2   // 目录不能直接复制，需要加一个  -r</span><br><span class="line">复制目录要加上 -r 参数</span><br><span class="line">$ cp -r a b</span><br><span class="line">$ nano a.txt        // 进入a.txt进行编辑</span><br><span class="line">$ cat a.txt         // 把内容显示出来</span><br><span class="line">$ nl a.txt          // 和 cat 类似，但可以打出行号</span><br><span class="line">$ tac a.txt         // 反过来显示（行），不显示行号</span><br><span class="line">$ more less head tail （这里是四个命令）</span><br><span class="line">more 可以分屏分批看文件内容</span><br><span class="line">less 比 more 更高级，可以前后退看文件</span><br><span class="line">h 显示屏幕帮助, q 退出 less 程序w</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">$ head xx    // 可以显示文件的前 10 行</span><br><span class="line">$ tail xx    // 可以显示文件的后 10 行</span><br><span class="line">// head 和 tail 有一个 -n 参数</span><br><span class="line">$ head -n 20 a.gua  // 指定看多少行</span><br><span class="line">// touch</span><br><span class="line">// touch a.gua</span><br><span class="line">// 如果 a.gua 存在就更新修改时间</span><br><span class="line">// 如果 a.gua 不存在就创建文件</span><br></pre></td></tr></table></figure>
+<h3 id="权限操作"><a href="#权限操作" class="headerlink" title="权限操作"></a>权限操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">腾讯主机默认是用 ubuntu 这个用户登录, 为了方便操作, 统一选择 root 用户登录</span><br><span class="line">sudo</span><br><span class="line">用管理员帐户执行程序</span><br><span class="line">比如安装程序或者修改一些系统配置都需要管理员权限</span><br><span class="line"></span><br><span class="line">文件权限    文件类型    用户 用户组 文件大小  修改日期           文件名</span><br><span class="line">-rw-r--r--  1       root root   45      May 24 10:17    lazy_dog.txt</span><br><span class="line">-rw-r--r--  1       root root   56      May 24 09:47    ls-error.txt</span><br><span class="line">-rw-r--r--  1       root root   30      May 24 09:45    ls-output.txt</span><br><span class="line">drwxr-xr-x  4       root root 4096      May 24 03:37    node9</span><br><span class="line"></span><br><span class="line">drwxr-xr-x 第一位是表示文件类型, 后面每三位分为一组, 每组表示的权限意思是一样的</span><br><span class="line">文件类型    是否可读  是否可写  是否可执行</span><br><span class="line">d           r       w           x</span><br><span class="line">-           r       w           x</span><br><span class="line"></span><br><span class="line">其中 d 表示 目录 directory, - 表示普通文件</span><br><span class="line">三组 rwx 分表代表 所属用户|同组用户(文件所属的群组)|其他用户</span><br><span class="line">rwx 可以用数字表示为 421</span><br><span class="line"></span><br><span class="line">777 表示三组都是 rwx rwx rwx</span><br><span class="line">也就是 -rwxrwxrwx</span><br><span class="line"></span><br><span class="line">每一位使用的是 2 进制数字表示</span><br><span class="line">210</span><br><span class="line">于是乎</span><br><span class="line">r-- 就是 4</span><br><span class="line">rw- 就是 6</span><br><span class="line">rwx 就是 7</span><br><span class="line">r-x 就是 5</span><br><span class="line"></span><br><span class="line">-rw-rw-r--     文件的访问权限</span><br><span class="line">1              文件的链接数目(这个不用关心)</span><br><span class="line">root           文件所有者的用户名</span><br><span class="line">root           文件所属用户组</span><br><span class="line">10             文件大小（单位是字节）</span><br><span class="line">11/09 20:28    上次修改文件的日期和时间</span><br><span class="line">b.gua          文件名</span><br><span class="line"></span><br><span class="line">// 我们只考虑一个 root 用户的情况, 所以这部分不演示了, 直接跳过</span><br><span class="line">chown</span><br><span class="line">改变文件的用户</span><br><span class="line">chown gua c.gua</span><br><span class="line">chown gua:gua c.gua</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chmod</span><br><span class="line">改变文件权限</span><br><span class="line">666 这种表示按照 8 进制数字更改, 换成字符就是 rw- rw- rw-</span><br><span class="line"></span><br><span class="line">u   user    表示文件所有者</span><br><span class="line">g   group   表示文件所属群组</span><br><span class="line">o   others  表示其他用户</span><br><span class="line">a   all     表示 ugo 的组合</span><br><span class="line">+x 表示添加 x 权限, 等价于 a+x, 文件所有者/文件所属群组/其他用户都添加 x 权限</span><br><span class="line">-x 表示减少 x 权限</span><br><span class="line">chmod 666 a.txt</span><br><span class="line">chmod +x b.txt</span><br><span class="line">chmod -x tmp</span><br></pre></td></tr></table></figure>
+<h3 id="信息查找"><a href="#信息查找" class="headerlink" title="信息查找"></a>信息查找</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$file       // 显示文件的类型（不是百分之百准确）</span><br><span class="line">$ uname    // 显示操作系统的名字或者其他信息</span><br><span class="line">$ uname -r   // 显示内核信息</span><br><span class="line">$ uname -a   // 显示详细信息</span><br><span class="line">$ which nano       // 显示具体路径</span><br><span class="line">which perl</span><br><span class="line">有时候开发语言里会提到 3p, 也就是 perl php python</span><br><span class="line">which pwd</span><br><span class="line">显示 pwd 的具体路径</span><br><span class="line">$ whereis  // 显示更全面的信息</span><br><span class="line">$ whereis nano</span><br><span class="line"></span><br><span class="line">$ whoami    // 显示是哪个用户</span><br><span class="line">$ find . -name &quot;&quot;    // 不确定这个命令，跳过</span><br></pre></td></tr></table></figure>
+<h3 id="奇怪符号"><a href="#奇怪符号" class="headerlink" title="奇怪符号"></a>奇怪符号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">~   家目录快捷方式</span><br><span class="line">$ cd ~ //回到家目录</span><br><span class="line">&gt;   覆盖式重定向(覆盖以前的文件)</span><br><span class="line">$ echo hello &gt; c.txt   // 输出到 c.txt, echo 相当于log</span><br><span class="line">&gt;&gt;  追加重定向（添加在以前的文件后面）</span><br><span class="line">$ echo hello angin &gt;&gt; c.txt </span><br><span class="line">|   管道, (前面的作为输出，输入到后面的命令中)</span><br><span class="line">``  获取命令执行的结果</span><br><span class="line">比如 echo pwd 输出的就是 pwd 这个字符串</span><br><span class="line">echo `pwd` 输出的是 pwd 命令执行的结果, 相当于一个变量</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ history     // 查看历史命令</span><br><span class="line">grep          // 查找,过滤</span><br><span class="line">这两个一般配合使用</span><br><span class="line">$ history | grep touch</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ps</span><br><span class="line">查看进程, 一般用下面的用法</span><br><span class="line">ps ax</span><br><span class="line">ps ax | grep node</span><br><span class="line">查看带 node 字符串的进程</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kill 和 killall 杀进程</span><br><span class="line">用 ps ax 找到进程id (pid)</span><br><span class="line">kill [pid]</span><br><span class="line">kill -9 [pid]</span><br><span class="line">kill -15 [pid]</span><br><span class="line">killall 是用进程名字来杀进程</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&amp;   后台执行</span><br><span class="line">node app.js &amp;</span><br><span class="line">可以用 fg 命令把一个在后台的程序拉到前台来</span><br><span class="line">可以用 Ctrl-z 来把一个前台的程序放到后台去挂起</span><br><span class="line">()  开新的子进程shell执行(不用掌握这一条, 因为几乎没人用)</span><br></pre></td></tr></table></figure>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">快捷键</span><br><span class="line">C-z     把正在运行的程序挂起并放在后台(fg 可以返回)</span><br><span class="line">C-c     中断程序的执行</span><br><span class="line">C-d     输入文件终止符(end of file, EOF)</span><br><span class="line"></span><br><span class="line">比如输入 cat(不带参数), 会等待着从键盘输入内容</span><br><span class="line">hello</span><br><span class="line">输入 Ctrl-d 后会结束输入</span><br><span class="line"></span><br><span class="line">输入快捷键</span><br><span class="line">C-t     交换光标前面的两个字符(只在终端有效)</span><br><span class="line">C-w     一次删除一个单词</span><br><span class="line">C-u     一次删除一行（从光标删除到行首）</span><br><span class="line">C-k     从光标删除到行尾</span><br><span class="line">C-d     删除后一个字符</span><br><span class="line">C-h     删除前一个字符</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C-f     forward 往前 就是右</span><br><span class="line">C-b     backward 往后 就是左箭头</span><br><span class="line">C-p     pres    往上 就是上箭头</span><br><span class="line">C-n     next    往下 就是下箭头</span><br><span class="line">C-a     光标回到行首</span><br><span class="line">C-e     光标跳到行尾</span><br><span class="line"></span><br><span class="line">快捷键</span><br><span class="line">C-z 挂起到后台</span><br><span class="line">C-c 中断程序</span><br></pre></td></tr></table></figure>
+<h3 id="时间同步"><a href="#时间同步" class="headerlink" title="时间同步"></a>时间同步</h3><p>设定时区：dpkg-reconfigure tzdata</p>
+<p>选择Asia -&gt; 再选择Shanghai -&gt; OK</p>
+<p>同步时间命令：</p>
+<p>1、sudo apt-get install ntpdate // 安装时间同步工具</p>
+<p>2、sudo ntpdate cn.pool.ntp.org // 与网络服务器同步时间</p>
+<p>3、date // 查看时间是否已同步</p>
+<h3 id="传送文件到linux服务器"><a href="#传送文件到linux服务器" class="headerlink" title="传送文件到linux服务器"></a>传送文件到linux服务器</h3><p>scp <a href="http://www.runoob.com/linux/linux-comm-scp.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-comm-scp.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程/" rel="tag"># 编程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/11/列出文件目录树/" rel="next" title="macos 使用 tree 列出文件目录树">
+                <i class="fa fa-chevron-left"></i> macos 使用 tree 列出文件目录树
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="郭钧豪">
+            
+              <p class="site-author-name" itemprop="name">郭钧豪</p>
+              <p class="site-description motion-element" itemprop="description">路漫漫，其修远</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/guojunhao118" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://guojunhao.lofter.com" target="_blank" title="Lofter">
+                      
+                        <i class="fa fa-fw fa-camera-retro"></i>Lofter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux各版本分析"><span class="nav-number">1.</span> <span class="nav-text">linux各版本分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接服务器（推荐cmder）"><span class="nav-number">2.</span> <span class="nav-text">连接服务器（推荐cmder）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-常用命令"><span class="nav-number">3.</span> <span class="nav-text">linux 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#权限操作"><span class="nav-number">3.1.</span> <span class="nav-text">权限操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息查找"><span class="nav-number">3.2.</span> <span class="nav-text">信息查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奇怪符号"><span class="nav-number">3.3.</span> <span class="nav-text">奇怪符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-number">3.4.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间同步"><span class="nav-number">3.5.</span> <span class="nav-text">时间同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送文件到linux服务器"><span class="nav-number">3.6.</span> <span class="nav-text">传送文件到linux服务器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭钧豪</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://jasonguo.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://guojunhao118.github.io/2019/01/14/linux/';
+          this.page.identifier = '2019/01/14/linux/';
+          this.page.title = 'linux';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://jasonguo.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
