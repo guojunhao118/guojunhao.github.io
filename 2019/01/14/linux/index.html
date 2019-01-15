@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="linux各版本分析 连接服务器 linux 常用命令 权限操作 信息查找 奇怪符号 快捷键 时间同步    linux各版本分析  Linux 的各种版本分析Debian 最好的 最稳定Ubuntu 抄的 debian, 用途广泛, 用户多(我用的是 ubuntu 1604)CentOS 垃圾 工具老旧, 使用不方便  连接服务器（推荐cmder）1$ ssh root@+你的ip linux">
+<meta name="description" content="linux各版本分析 连接服务器（推荐cmder） linux 常用命令 权限操作 信息查找 奇怪符号 快捷键 时间同步 传送文件到linux服务器 配置ssh     linux各版本分析 Linux 的各种版本分析Debian 最好的 最稳定Ubuntu 抄的 debian, 用途广泛, 用户多(我用的是 ubuntu 1604)CentOS 垃圾 工具老旧, 使用不方便  连接服务器（推">
 <meta name="keywords" content="编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux">
 <meta property="og:url" content="https://guojunhao118.github.io/2019/01/14/linux/index.html">
 <meta property="og:site_name" content="郭钧豪的博客">
-<meta property="og:description" content="linux各版本分析 连接服务器 linux 常用命令 权限操作 信息查找 奇怪符号 快捷键 时间同步    linux各版本分析  Linux 的各种版本分析Debian 最好的 最稳定Ubuntu 抄的 debian, 用途广泛, 用户多(我用的是 ubuntu 1604)CentOS 垃圾 工具老旧, 使用不方便  连接服务器（推荐cmder）1$ ssh root@+你的ip linux">
+<meta property="og:description" content="linux各版本分析 连接服务器（推荐cmder） linux 常用命令 权限操作 信息查找 奇怪符号 快捷键 时间同步 传送文件到linux服务器 配置ssh     linux各版本分析 Linux 的各种版本分析Debian 最好的 最稳定Ubuntu 抄的 debian, 用途广泛, 用户多(我用的是 ubuntu 1604)CentOS 垃圾 工具老旧, 使用不方便  连接服务器（推">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://guojunhao118.github.io/2019/01/14/linux/bg.jpg">
-<meta property="og:updated_time" content="2019-01-14T01:57:33.826Z">
+<meta property="og:updated_time" content="2019-01-15T02:00:57.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux">
-<meta name="twitter:description" content="linux各版本分析 连接服务器 linux 常用命令 权限操作 信息查找 奇怪符号 快捷键 时间同步    linux各版本分析  Linux 的各种版本分析Debian 最好的 最稳定Ubuntu 抄的 debian, 用途广泛, 用户多(我用的是 ubuntu 1604)CentOS 垃圾 工具老旧, 使用不方便  连接服务器（推荐cmder）1$ ssh root@+你的ip linux">
-<meta name="twitter:image" content="https://guojunhao118.github.io/2019/01/14/linux/bg.jpg">
+<meta name="twitter:description" content="linux各版本分析 连接服务器（推荐cmder） linux 常用命令 权限操作 信息查找 奇怪符号 快捷键 时间同步 传送文件到linux服务器 配置ssh     linux各版本分析 Linux 的各种版本分析Debian 最好的 最稳定Ubuntu 抄的 debian, 用途广泛, 用户多(我用的是 ubuntu 1604)CentOS 垃圾 工具老旧, 使用不方便  连接服务器（推">
 
 
 
@@ -332,20 +330,23 @@
       
 
       
-        <ul>
+        <!-- TOC -->
+<ul>
 <li><a href="#linux各版本分析">linux各版本分析</a></li>
-<li><a href="#连接服务器">连接服务器</a></li>
-<li><a href="#linux常用命令">linux 常用命令</a><ul>
+<li><a href="#连接服务器推荐cmder">连接服务器（推荐cmder）</a></li>
+<li><a href="#linux-常用命令">linux 常用命令</a><ul>
 <li><a href="#权限操作">权限操作</a></li>
 <li><a href="#信息查找">信息查找</a></li>
 <li><a href="#奇怪符号">奇怪符号</a></li>
 <li><a href="#快捷键">快捷键</a></li>
 <li><a href="#时间同步">时间同步</a></li>
+<li><a href="#传送文件到linux服务器">传送文件到linux服务器</a></li>
+<li><a href="#配置ssh">配置ssh</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="linux各版本分析"><a href="#linux各版本分析" class="headerlink" title="linux各版本分析"></a>linux各版本分析</h2><p><img src="/2019/01/14/linux/bg.jpg" alt="你想要输入的替代文字"></p>
-<blockquote>
+<!-- /TOC -->
+<h2 id="linux各版本分析"><a href="#linux各版本分析" class="headerlink" title="linux各版本分析"></a>linux各版本分析</h2><blockquote>
 <p>Linux 的各种版本分析<br>Debian 最好的 最稳定<br>Ubuntu 抄的 debian, 用途广泛, 用户多(我用的是 ubuntu 1604)<br>CentOS 垃圾 工具老旧, 使用不方便</p>
 </blockquote>
 <h2 id="连接服务器（推荐cmder）"><a href="#连接服务器（推荐cmder）" class="headerlink" title="连接服务器（推荐cmder）"></a>连接服务器（推荐cmder）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh root@+你的ip</span><br></pre></td></tr></table></figure>
@@ -374,6 +375,12 @@
 <p>2、sudo ntpdate cn.pool.ntp.org // 与网络服务器同步时间</p>
 <p>3、date // 查看时间是否已同步</p>
 <h3 id="传送文件到linux服务器"><a href="#传送文件到linux服务器" class="headerlink" title="传送文件到linux服务器"></a>传送文件到linux服务器</h3><p>scp <a href="http://www.runoob.com/linux/linux-comm-scp.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-comm-scp.html</a></p>
+<h3 id="配置ssh"><a href="#配置ssh" class="headerlink" title="配置ssh"></a>配置ssh</h3><ol>
+<li><code>ssh-keygen</code>的命令手册，通过<code>man ssh-keygen</code>命令查看命令</li>
+<li>通过命令<code>ssh-keygen -t rsa</code>(一直回车)，此时会生成一个<code>.ssh</code>的文件夹</li>
+<li>进入<code>.ssh</code>文件夹，创建<code>authorized_keys</code>文件</li>
+<li>拷入本地的公钥</li>
+</ol>
 
       
     </div>
@@ -413,6 +420,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/14/编辑器/" rel="prev" title="编辑器">
+                编辑器 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -501,7 +512,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -523,7 +534,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -586,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux各版本分析"><span class="nav-number">1.</span> <span class="nav-text">linux各版本分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接服务器（推荐cmder）"><span class="nav-number">2.</span> <span class="nav-text">连接服务器（推荐cmder）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-常用命令"><span class="nav-number">3.</span> <span class="nav-text">linux 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#权限操作"><span class="nav-number">3.1.</span> <span class="nav-text">权限操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息查找"><span class="nav-number">3.2.</span> <span class="nav-text">信息查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奇怪符号"><span class="nav-number">3.3.</span> <span class="nav-text">奇怪符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-number">3.4.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间同步"><span class="nav-number">3.5.</span> <span class="nav-text">时间同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送文件到linux服务器"><span class="nav-number">3.6.</span> <span class="nav-text">传送文件到linux服务器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux各版本分析"><span class="nav-number">1.</span> <span class="nav-text">linux各版本分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接服务器（推荐cmder）"><span class="nav-number">2.</span> <span class="nav-text">连接服务器（推荐cmder）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-常用命令"><span class="nav-number">3.</span> <span class="nav-text">linux 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#权限操作"><span class="nav-number">3.1.</span> <span class="nav-text">权限操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息查找"><span class="nav-number">3.2.</span> <span class="nav-text">信息查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奇怪符号"><span class="nav-number">3.3.</span> <span class="nav-text">奇怪符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-number">3.4.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间同步"><span class="nav-number">3.5.</span> <span class="nav-text">时间同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传送文件到linux服务器"><span class="nav-number">3.6.</span> <span class="nav-text">传送文件到linux服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置ssh"><span class="nav-number">3.7.</span> <span class="nav-text">配置ssh</span></a></li></ol></li></ol></div>
             
 
           </div>
