@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="es6,">
+  <meta name="keywords" content="混合开发,jsBrisge,js,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="数组的扩展find 和 findIndex  数组实例的find方法，用于找出第一个符合条件的数组成员。它的参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回undefined。">
-<meta name="keywords" content="es6">
+<meta name="description" content="基础配置index.js 12345678910111213141516171819202122232425262728293031323334function connectWebViewJavascriptBridge (callback) &amp;#123;    if (window &amp;amp;&amp;amp; window.WebViewJavascriptBridge) &amp;#123;">
+<meta name="keywords" content="混合开发,jsBrisge,js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="es6">
-<meta property="og:url" content="https://guojunhao118.github.io/2019/01/14/es6/index.html">
+<meta property="og:title" content="jsBrisge">
+<meta property="og:url" content="https://guojunhao118.github.io/2019/01/17/jsBrisge/index.html">
 <meta property="og:site_name" content="郭钧豪的博客">
-<meta property="og:description" content="数组的扩展find 和 findIndex  数组实例的find方法，用于找出第一个符合条件的数组成员。它的参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回undefined。">
+<meta property="og:description" content="基础配置index.js 12345678910111213141516171819202122232425262728293031323334function connectWebViewJavascriptBridge (callback) &amp;#123;    if (window &amp;amp;&amp;amp; window.WebViewJavascriptBridge) &amp;#123;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-17T02:27:41.500Z">
+<meta property="og:updated_time" content="2019-01-17T02:26:35.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="es6">
-<meta name="twitter:description" content="数组的扩展find 和 findIndex  数组实例的find方法，用于找出第一个符合条件的数组成员。它的参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回undefined。">
+<meta name="twitter:title" content="jsBrisge">
+<meta name="twitter:description" content="基础配置index.js 12345678910111213141516171819202122232425262728293031323334function connectWebViewJavascriptBridge (callback) &amp;#123;    if (window &amp;amp;&amp;amp; window.WebViewJavascriptBridge) &amp;#123;">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://guojunhao118.github.io/2019/01/14/es6/">
+  <link rel="canonical" href="https://guojunhao118.github.io/2019/01/17/jsBrisge/">
 
 
 
 
 
-  <title>es6 | 郭钧豪的博客</title>
+  <title>jsBrisge | 郭钧豪的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://guojunhao118.github.io/2019/01/14/es6/">
+    <link itemprop="mainEntityOfPage" href="https://guojunhao118.github.io/2019/01/17/jsBrisge/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="郭钧豪">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">es6</h1>
+          <h1 class="post-title" itemprop="name headline">jsBrisge</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T11:12:16+08:00">
-                2019-01-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-17T10:12:48+08:00">
+                2019-01-17
               </time>
             
 
@@ -323,8 +323,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/01/14/es6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/14/es6/" itemprop="commentCount"></span>
+                <a href="/2019/01/17/jsBrisge/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/17/jsBrisge/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -352,15 +352,10 @@
       
 
       
-        <h3 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h3><p><code>find</code> 和 <code>findIndex</code></p>
-<blockquote>
-<p>数组实例的find方法，用于找出第一个符合条件的数组成员。它的参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回undefined。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><p><a href="http://www.jianshu.com/p/fe5f173276bd" target="_blank" rel="noopener">http://www.jianshu.com/p/fe5f173276bd</a></p>
-<p><a href="https://developers.google.com/web/fundamentals/primers/promises" target="_blank" rel="noopener">谷歌 promise 教程</a></p>
-<h1 id="async-await"><a href="#async-await" class="headerlink" title="async await"></a>async await</h1><p><a href="https://developers.google.com/web/fundamentals/primers/async-functions" target="_blank" rel="noopener">google async functions</a></p>
-
+        <p>基础配置<code>index.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">function connectWebViewJavascriptBridge (callback) &#123;</span><br><span class="line">    if (window &amp;&amp; window.WebViewJavascriptBridge) &#123;</span><br><span class="line">        callback(WebViewJavascriptBridge)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        document.addEventListener(&apos;WebViewJavascriptBridgeReady&apos;, function () &#123;</span><br><span class="line">            callback(WebViewJavascriptBridge)</span><br><span class="line">        &#125;, false)</span><br><span class="line">    &#125;</span><br><span class="line">    if (window.WVJBCallbacks) &#123;</span><br><span class="line">        return window.WVJBCallbacks.push(callback)</span><br><span class="line">    &#125;</span><br><span class="line">    window.WVJBCallbacks = [callback]</span><br><span class="line">    var WVJBIframe = document.createElement(&apos;iframe&apos;)</span><br><span class="line">    WVJBIframe.style.display = &apos;none&apos;</span><br><span class="line">    WVJBIframe.src = &apos;wvjbscheme://__BRIDGE_LOADED__&apos;</span><br><span class="line">    document.documentElement.appendChild(WVJBIframe)</span><br><span class="line">    setTimeout(function () &#123; document.documentElement.removeChild(WVJBIframe) &#125;, 0)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let pro = new Promise(function (resolve, reject) &#123;</span><br><span class="line">    connectWebViewJavascriptBridge(function (bridge) &#123;</span><br><span class="line">        resolve(bridge)</span><br><span class="line">        bridge.init(function (message, initCallback) &#123;</span><br><span class="line">            var data = &apos;bridge 获取成功 初始化&apos;</span><br><span class="line">            initCallback(data)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">function initCallback (data) &#123;</span><br><span class="line">    console.log(data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default pro</span><br></pre></td></tr></table></figure>
+<p>新建API文件处理所有与原生交互<code>brisgeApi.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import bridgePromise from &apos;./index&apos;</span><br><span class="line">const bridgeApi = &#123;</span><br><span class="line">    closeView ()&#123;</span><br><span class="line">        bridgePromise.then(bridge =&gt; &#123;</span><br><span class="line">            bridge.callHandler(&apos;closeView&apos;, data, function()&#123;&#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    login () &#123;</span><br><span class="line">        bridgePromise.then(bridge =&gt; &#123;</span><br><span class="line">            bridge.callHandler(&apos;signIn&apos;, data, function()&#123;&#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    memberInfo (prams) &#123;</span><br><span class="line">        let data = prams || &apos;&apos;</span><br><span class="line">        bridgePromise.then(bridge =&gt; &#123;</span><br><span class="line">            bridge.callHandler(&apos;memberInfo&apos;, JSON.stringify(data), function()&#123;&#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    copyText (prams) &#123;</span><br><span class="line">        let data = prams || &apos;&apos;</span><br><span class="line">        bridgePromise.then(bridge =&gt; &#123;</span><br><span class="line">            bridge.callHandler(&apos;copyText&apos;, JSON.stringify(data), function()&#123;&#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    wxShare (prams) &#123;</span><br><span class="line">        let data = prams || &apos;&apos;</span><br><span class="line">        bridgePromise.then(bridge =&gt; &#123;</span><br><span class="line">            bridge.callHandler(&apos;wxShare&apos;, JSON.stringify(data), function()&#123;&#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">export default bridgeApi</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -377,7 +372,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/es6/" rel="tag"># es6</a>
+            <a href="/tags/混合开发/" rel="tag"># 混合开发</a>
+          
+            <a href="/tags/jsBrisge/" rel="tag"># jsBrisge</a>
+          
+            <a href="/tags/js/" rel="tag"># js</a>
           
         </div>
       
@@ -390,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/14/编辑器/" rel="next" title="编辑器">
-                <i class="fa fa-chevron-left"></i> 编辑器
+              <a href="/2019/01/16/docker/" rel="next" title="docker">
+                <i class="fa fa-chevron-left"></i> docker
               </a>
             
           </div>
@@ -399,10 +398,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/15/mac配置/" rel="prev" title="mac配置">
-                mac配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -464,17 +459,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -566,22 +552,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的扩展"><span class="nav-number">1.</span> <span class="nav-text">数组的扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#promise"><span class="nav-number">2.</span> <span class="nav-text">promise</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#async-await"><span class="nav-number"></span> <span class="nav-text">async await</span></a></li></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -740,9 +710,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://guojunhao118.github.io/2019/01/14/es6/';
-          this.page.identifier = '2019/01/14/es6/';
-          this.page.title = 'es6';
+          this.page.url = 'https://guojunhao118.github.io/2019/01/17/jsBrisge/';
+          this.page.identifier = '2019/01/17/jsBrisge/';
+          this.page.title = 'jsBrisge';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://jasonguo.disqus.com/embed.js';
