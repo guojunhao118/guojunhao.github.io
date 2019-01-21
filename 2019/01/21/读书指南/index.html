@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="JavaScript入门: Head First HTML5 Programming（中文版） 第 1 到 4 章是 JS 的基础知识，多花些时间看看。后面章节只要是 HTML5 新增的 API，可以快速过一遍，感兴趣多翻翻也好，期间多参考配套代码 bethrobson/Head-First-HTML5   JavaScript高级程序设计（第3版） 红宝书阅读指南  ● 第一章随便看看，了解历史">
+<meta name="keywords" content="摄影、数码、前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读书指南">
+<meta property="og:url" content="https://guojunhao118.github.io/2019/01/21/读书指南/index.html">
+<meta property="og:site_name" content="郭钧豪的博客">
+<meta property="og:description" content="JavaScript入门: Head First HTML5 Programming（中文版） 第 1 到 4 章是 JS 的基础知识，多花些时间看看。后面章节只要是 HTML5 新增的 API，可以快速过一遍，感兴趣多翻翻也好，期间多参考配套代码 bethrobson/Head-First-HTML5   JavaScript高级程序设计（第3版） 红宝书阅读指南  ● 第一章随便看看，了解历史">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-21T12:35:26.765Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="读书指南">
+<meta name="twitter:description" content="JavaScript入门: Head First HTML5 Programming（中文版） 第 1 到 4 章是 JS 的基础知识，多花些时间看看。后面章节只要是 HTML5 新增的 API，可以快速过一遍，感兴趣多翻翻也好，期间多参考配套代码 bethrobson/Head-First-HTML5   JavaScript高级程序设计（第3版） 红宝书阅读指南  ● 第一章随便看看，了解历史">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://guojunhao118.github.io/2019/01/21/读书指南/">
+
+
+
+
+
+  <title>读书指南 | 郭钧豪的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">郭钧豪的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://guojunhao118.github.io/2019/01/21/读书指南/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郭钧豪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭钧豪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">读书指南</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-21T20:35:02+08:00">
+                2019-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/21/读书指南/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/21/读书指南/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="入门-Head-First-HTML5-Programming（中文版）"><a href="#入门-Head-First-HTML5-Programming（中文版）" class="headerlink" title="入门: Head First HTML5 Programming（中文版）"></a>入门: <a href="https://book.douban.com/subject/19894872/" target="_blank" rel="noopener">Head First HTML5 Programming（中文版）</a></h3><blockquote>
+<p>第 1 到 4 章是 JS 的基础知识，多花些时间看看。后面章节只要是 HTML5 新增的 API，可以快速过一遍，感兴趣多翻翻也好，期间多参考配套代码 <a href="https://github.com/bethrobson/Head-First-HTML5" target="_blank" rel="noopener">bethrobson/Head-First-HTML5</a> </p>
+</blockquote>
+<h3 id="JavaScript高级程序设计（第3版）"><a href="#JavaScript高级程序设计（第3版）" class="headerlink" title="JavaScript高级程序设计（第3版）"></a>JavaScript高级程序设计（第3版）</h3><blockquote>
+<p>红宝书阅读指南<br>  ● 第一章随便看看，了解历史<br>  ● 第二章简单看看，script 里的 defer 和 async 属性了解下就好了，noscript 不用看<br>  ● 第三章位运算、label、with 不用看<br>  ● 第四章概念性质的了解就可以，基本类型与引用类型需要掌握<br>  ● 第五章正则不用看/page116(134)<br>  ● 第六章都看看，重点内容<br>  ● 第七章也是重点内容，都需要看<br>  ● 第八章了解就可以了，知道 bom是什么，用的时候能查到<br>  ● 第九章随便看看，有个印象就行 (用户代理检测一节没有细看)<br>  ● 10，11，12 了解 DOM 的类型，掌握操作 DOM，包括选择、style、文本等<br>  ● 13 事件中和 IE 有关的部分不用看<br>  ● 14 表单内容需要掌握，可以和 jquery 的 api 结合看，简化理解<br>  ● ==15 可以跳过，有兴趣的自己看看就好了==<br>  ● 16 了解就行了，postMessage 可能会出现在跨域问题中<br>  ● ==17 18 19 跳过就可以了==<br>  ● 20 21 是 JSON 和 AJAX，不过大部分应该掌握了，新加入的东西看看好了，用的时候<br>  ● 比如 formData 在上传文件的时候需要用上，progress 用的比较少。<br>  ● 跨域知识比较旧，但是面试的套路就是要掌握这些，所以还是需要看。<br>  ● ==22 高级技巧感兴趣就看看，因为要求相对较高，不愿意看也没有关系==<br>  ● ==23 看看 localStorage 和 cookie 就可以，其他的实际用得不多==<br>  ● ==24 看看还是有必要的，算是合格的编程风格==<br>  ● ==25 使用比较多的是 requestAnimationFrame（主要是改良动画） 和 File API，其他的使用较少，用的时候再查就可以了==<br>  ● 附录部分里的严格模式不用看，其他了解下就可以</p>
+</blockquote>
+<p>###《JavaScript 面向对象精要》</p>
+<blockquote>
+<p>还是 Zakas 的书，很薄的一本小册子，讲述了 JavaScript 面向对象的知识，算是 JavaScript 高级程序设计 5 6 7 三章的补充。</p>
+</blockquote>
+<h3 id="《JavaScript-语言精粹》"><a href="#《JavaScript-语言精粹》" class="headerlink" title="《JavaScript 语言精粹》"></a>《JavaScript 语言精粹》</h3><blockquote>
+<p>老道的书，算是他个人理解的 JavaScript 最佳实践，书里面最后的 JSON Parser 算是彩蛋。我觉得这本应该和《Effective JavaScript》一起看的，当然后者的内容相对较新。</p>
+</blockquote>
+<h3 id="《JavaScript-忍者秘籍》"><a href="#《JavaScript-忍者秘籍》" class="headerlink" title="《JavaScript 忍者秘籍》"></a>《JavaScript 忍者秘籍》</h3><blockquote>
+<p>jQuery 作者的书，以前相对讲 JavaScript 比较高级的书。可惜出得比较晚，有些内容现在看来比较过时，有点土法炼钢的味道。</p>
+</blockquote>
+<h3 id="《你不知道的-JavaScript》"><a href="#《你不知道的-JavaScript》" class="headerlink" title="《你不知道的 JavaScript》"></a>《你不知道的 JavaScript》</h3><h3 id="《编写可维护的-JavaScript》"><a href="#《编写可维护的-JavaScript》" class="headerlink" title="《编写可维护的 JavaScript》"></a>《编写可维护的 JavaScript》</h3><h3 id="jQuery基础教程-（第4版"><a href="#jQuery基础教程-（第4版" class="headerlink" title="jQuery基础教程 （第4版)"></a><a href="https://book.douban.com/subject/25733582/" target="_blank" rel="noopener">jQuery基础教程 （第4版)</a></h3><h2 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h2><h3 id="代码大全（第2版"><a href="#代码大全（第2版" class="headerlink" title="代码大全（第2版)"></a><a href="https://book.douban.com/subject/1477390/" target="_blank" rel="noopener">代码大全（第2版)</a></h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/21/default之间的关系和区别/" rel="next" title="default之间的关系和区别">
+                <i class="fa fa-chevron-left"></i> default之间的关系和区别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="郭钧豪">
+            
+              <p class="site-author-name" itemprop="name">郭钧豪</p>
+              <p class="site-description motion-element" itemprop="description">路漫漫，其修远</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/guojunhao118" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://guojunhao.lofter.com" target="_blank" title="Lofter">
+                      
+                        <i class="fa fa-fw fa-camera-retro"></i>Lofter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#入门-Head-First-HTML5-Programming（中文版）"><span class="nav-number">1.1.</span> <span class="nav-text">入门: Head First HTML5 Programming（中文版）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript高级程序设计（第3版）"><span class="nav-number">1.2.</span> <span class="nav-text">JavaScript高级程序设计（第3版）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#《JavaScript-语言精粹》"><span class="nav-number">1.3.</span> <span class="nav-text">《JavaScript 语言精粹》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#《JavaScript-忍者秘籍》"><span class="nav-number">1.4.</span> <span class="nav-text">《JavaScript 忍者秘籍》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#《你不知道的-JavaScript》"><span class="nav-number">1.5.</span> <span class="nav-text">《你不知道的 JavaScript》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#《编写可维护的-JavaScript》"><span class="nav-number">1.6.</span> <span class="nav-text">《编写可维护的 JavaScript》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery基础教程-（第4版"><span class="nav-number">1.7.</span> <span class="nav-text">jQuery基础教程 （第4版)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程"><span class="nav-number">2.</span> <span class="nav-text">编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码大全（第2版"><span class="nav-number">2.1.</span> <span class="nav-text">代码大全（第2版)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭钧豪</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://jasonguo.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://guojunhao118.github.io/2019/01/21/读书指南/';
+          this.page.identifier = '2019/01/21/读书指南/';
+          this.page.title = '读书指南';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://jasonguo.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

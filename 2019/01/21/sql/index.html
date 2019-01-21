@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="sql,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="注意 ： SQL对大小写不敏感 SQL 语句   语句 说明 例子     SELECT DISTINCT 列出不同值 SELECT DISTINCT 列名称 FROM 表名称   SQL WHERE 有条件地从表中选取数据 SELECT 列名称 FROM 表名称 WHERE 列 运算符 值   SQL AND &amp;amp; OR 对记录进行过滤 SELECT * FROM Persons WHER">
+<meta name="keywords" content="sql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql">
+<meta property="og:url" content="https://guojunhao118.github.io/2019/01/21/sql/index.html">
+<meta property="og:site_name" content="郭钧豪的博客">
+<meta property="og:description" content="注意 ： SQL对大小写不敏感 SQL 语句   语句 说明 例子     SELECT DISTINCT 列出不同值 SELECT DISTINCT 列名称 FROM 表名称   SQL WHERE 有条件地从表中选取数据 SELECT 列名称 FROM 表名称 WHERE 列 运算符 值   SQL AND &amp;amp; OR 对记录进行过滤 SELECT * FROM Persons WHER">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-21T12:26:53.025Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sql">
+<meta name="twitter:description" content="注意 ： SQL对大小写不敏感 SQL 语句   语句 说明 例子     SELECT DISTINCT 列出不同值 SELECT DISTINCT 列名称 FROM 表名称   SQL WHERE 有条件地从表中选取数据 SELECT 列名称 FROM 表名称 WHERE 列 运算符 值   SQL AND &amp;amp; OR 对记录进行过滤 SELECT * FROM Persons WHER">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://guojunhao118.github.io/2019/01/21/sql/">
+
+
+
+
+
+  <title>sql | 郭钧豪的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">郭钧豪的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://guojunhao118.github.io/2019/01/21/sql/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郭钧豪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭钧豪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">sql</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-21T20:14:20+08:00">
+                2019-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/21/sql/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/21/sql/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>注意</strong> ： SQL对大小写不敏感</p>
+<h3 id="SQL-语句"><a href="#SQL-语句" class="headerlink" title="SQL 语句"></a>SQL 语句</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">语句</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">SELECT DISTINCT</td>
+<td style="text-align:center">列出不同值</td>
+<td style="text-align:center"><code>SELECT DISTINCT 列名称 FROM 表名称</code></td>
+</tr>
+<tr>
+<td style="text-align:center">SQL WHERE</td>
+<td style="text-align:center">有条件地从表中选取数据</td>
+<td style="text-align:center"><code>SELECT 列名称 FROM 表名称 WHERE 列 运算符 值</code></td>
+</tr>
+<tr>
+<td style="text-align:center">SQL AND &amp; OR</td>
+<td style="text-align:center">对记录进行过滤</td>
+<td style="text-align:center"><code>SELECT * FROM Persons WHERE FirstName=&#39;Thomas&#39; AND LastName=&#39;Carter&#39;</code><br><code>SELECT * FROM Persons WHERE firstname=&#39;Thomas&#39; OR lastname=&#39;Carter&#39;</code><br> <code>SELECT * FROM Persons WHERE (FirstName=&#39;Thomas&#39; OR FirstName=&#39;William&#39;) AND LastName=&#39;Carter&#39;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">SQL ORDER BY</td>
+<td style="text-align:center">对结果集进行排序</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">SQL INSERT INTO</td>
+<td style="text-align:center">用于向表格中插入新的行</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h2 id="常用语法"><a href="#常用语法" class="headerlink" title="常用语法"></a>常用语法</h2><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><blockquote>
+<p>INTEGER 整数类型 NOT NULL 非空 PRIMARY KEY 主键 AUTOINCREMENT 自增 UNIQUE 唯一的</p>
+</blockquote>
+<p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;(&lt;列名&gt; &lt;数据类型&gt;[列级完整性约束条件]</span><br><span class="line">              [,&lt;列名&gt; &lt;数据类型&gt;[列级完整性约束条件]]…);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 创建学生表</span><br><span class="line">CREATE TABLE Student</span><br><span class="line">(</span><br><span class="line">Id INT NOT NULL UNIQUE PRIMARY KEY,</span><br><span class="line">Name VARCHAR(<span class="number">20</span>) NOT NULL,</span><br><span class="line">Age INT NULL,</span><br><span class="line">Gender VARCHAR(<span class="number">4</span>) NULL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 删除学生表</span><br><span class="line">DROP TABLE Student;</span><br></pre></td></tr></table></figure>
+<h3 id="清空表"><a href="#清空表" class="headerlink" title="清空表"></a>清空表</h3><p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TRUNCATE TABLE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 删除学生表</span><br><span class="line">TRUNCATE TABLE Student;</span><br></pre></td></tr></table></figure>
+<h3 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h3><p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 添加列</span><br><span class="line">ALTER TABLE &lt;表名&gt; [ADD &lt;新列名&gt; &lt;数据类型&gt;[列级完整性约束条件]]</span><br><span class="line">-- 删除列</span><br><span class="line">ALTER TABLE &lt;表名&gt; [DROP COLUMN &lt;列名&gt;]</span><br><span class="line">-- 修改列</span><br><span class="line">ALTER TABLE &lt;表名&gt; [MODIFY COLUMN &lt;列名&gt; &lt;数据类型&gt; [列级完整性约束条件]]</span><br></pre></td></tr></table></figure>
+<p>示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 添加学生表<span class="string">`Phone`</span>列</span><br><span class="line">ALTER TABLE Student ADD Phone VARCHAR(<span class="number">15</span>) NULL;</span><br><span class="line">-- 删除学生表<span class="string">`Phone`</span>列</span><br><span class="line">ALTER TABLE Student DROP COLUMN Phone;</span><br><span class="line">-- 修改学生表<span class="string">`Phone`</span>列</span><br><span class="line">ALTER TABLE Student MODIFY Phone VARCHAR(<span class="number">13</span>) NULL;</span><br></pre></td></tr></table></figure>
+<h3 id="SQL查询语句"><a href="#SQL查询语句" class="headerlink" title="SQL查询语句"></a>SQL查询语句</h3><p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT [ALL|DISTINCT] &lt;目标列表达式&gt;[,&lt;目标列表达式&gt;]…</span><br><span class="line">FROM &lt;表名或视图名&gt;[,&lt;表名或视图名&gt;]…</span><br><span class="line">[WHERE &lt;条件表达式&gt;]</span><br><span class="line">[GROUP BY &lt;列名&gt; [HAVING &lt;条件表达式&gt;]]</span><br><span class="line">[ORDER BY &lt;列名&gt; [ASC|DESC]…]</span><br></pre></td></tr></table></figure>
+<p>基本查询</p>
+<p><code>SELECT 列名称 FROM 表名称</code> / <code>SELECT * FROM 表名称</code></p>
+<p>模糊查询</p>
+<p><code>select * from club_member where name like &quot;%20170306%&quot;;</code></p>
+<p>查总数</p>
+<p><code>select count(*) from club_member where id &gt; 2;</code></p>
+<blockquote>
+<p>SQL查询语句的顺序：SELECT、FROM、WHERE、GROUP BY、HAVING、ORDER BY。SELECT、FROM是必须的，HAVING子句只能与GROUP BY搭配使用。</p>
+</blockquote>
+<p>示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM Student</span><br><span class="line">WHERE Id&gt;<span class="number">10</span></span><br><span class="line">GROUP BY Age HAVING AVG(Age) &gt; <span class="number">20</span></span><br><span class="line">ORDER BY Id DESC</span><br></pre></td></tr></table></figure>
+<h3 id="SQL插入语句"><a href="#SQL插入语句" class="headerlink" title="SQL插入语句"></a>SQL插入语句</h3><p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 插入不存在的数据</span><br><span class="line">INSERT INTO &lt;表名&gt; [(字段名[,字段名]…)] VALUES (常量[,常量]…);</span><br><span class="line">-- 将查询的数据插入到数据表中</span><br><span class="line">INSERT INTO &lt;表名&gt; [(字段名[,字段名]…)] SELECT 查询语句;</span><br></pre></td></tr></table></figure>
+<p>示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 插入不存在的数据</span><br><span class="line">INSERT INTO Student (Name,Age,Gender) VALUES (<span class="string">'Andy'</span>,<span class="number">30</span>,<span class="string">'女'</span>);</span><br><span class="line">-- 将查询的数据插入到数据表中</span><br><span class="line">INSERT INTO Student (Name,Age,Gender)</span><br><span class="line">SELECT Name,Age,Gender FROM Student_T WHERE Id &gt;<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="SQL更新语句"><a href="#SQL更新语句" class="headerlink" title="SQL更新语句"></a>SQL更新语句</h3><p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE &lt;表名&gt; SET 列名=值表达式[,列名=值表达式…]</span><br><span class="line">[WHERE 条件表达式]</span><br></pre></td></tr></table></figure>
+<p>基本操作</p>
+<p><code>UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值</code></p>
+<p>修改多值</p>
+<p><code>update club_member set name = &quot;li&quot;,phone = &quot;188&quot; where.............</code></p>
+<p>示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 将Id在(<span class="number">10</span>,<span class="number">100</span>)的Age加<span class="number">1</span></span><br><span class="line">UPDATE Student SET Age= Age+<span class="number">1</span> WHERE Id&gt;<span class="number">10</span> AND Id&lt;<span class="number">100</span></span><br></pre></td></tr></table></figure>
+<h3 id="SQL删除语句"><a href="#SQL删除语句" class="headerlink" title="SQL删除语句"></a>SQL删除语句</h3><p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM &lt;表名&gt; [WHERE 条件表达式]</span><br></pre></td></tr></table></figure>
+<p>基本示例</p>
+<p><code>DELETE FROM 表名称 WHERE 列名称 = 值</code></p>
+<p>示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 删除Id小于<span class="number">10</span>的数据记录</span><br><span class="line">DELETE FROM Student WHERE Id&lt;<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE [UNIQUE] [CLUSTER] INDEX &lt;索引名&gt; ON &lt;表名&gt;(&lt;列名&gt;[&lt;次序&gt;][,&lt;列名&gt;[&lt;次序&gt;]]…);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>UNIQUE：表明此索引的每一个索引值只对应唯一的数据记录<br>CLUSTER：表明建立的索引是聚集索引<br>次序：可选ASC(升序)或DESC(降序)，默认ASC</p>
+</blockquote>
+<p>示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 建立学生表索引：单一字段Id索引倒序</span><br><span class="line">CREATE UNIQUE INDEX INDEX_SId ON Student (Id DESC);</span><br><span class="line">-- 建立学生表索引：多个字段Id、Name索引倒序</span><br><span class="line">CREATE UNIQUE INDEX INDEX_SId_SName ON Student (Id DESC,Name DESC);</span><br></pre></td></tr></table></figure>
+<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP INDEX &lt;索引名&gt;;</span><br></pre></td></tr></table></figure>
+<p>示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 删除学生表索引 INDEX_SId</span><br><span class="line">DROP INDEX INDEX_SId;</span><br></pre></td></tr></table></figure>
+<h3 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h3><p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW &lt;视图名&gt;</span><br><span class="line">AS SELECT 查询子句</span><br><span class="line">[WITH CHECK OPTION]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查询子句：子查询可以是任何SELECT语句，但是常不允许含有ORDER BY子句和DISTINCT短语；<br>WITH CHECK OPTION：表示对UPDATE、INSERT、DELETE操作时要保证更新。</p>
+</blockquote>
+<p>示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW VIEW_Stu_Man</span><br><span class="line">AS SELECT * FROM Student WHERE Gender = <span class="string">'男'</span></span><br><span class="line">WITH CHECK OPTION</span><br></pre></td></tr></table></figure>
+<h3 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h3><p>语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP VIEW &lt;视图名&gt;;</span><br></pre></td></tr></table></figure>
+<p>示例<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP VIEW VIEW_Stu_Man;</span><br></pre></td></tr></table></figure></p>
+<h3 id="SQL的访问控制"><a href="#SQL的访问控制" class="headerlink" title="SQL的访问控制"></a>SQL的访问控制</h3><blockquote>
+<p>访问控制是控制用户的数据存储权限，由DBA来决定。<br>SQL标准语句包括SELECT、INSERT、UPDATE和DELETE</p>
+</blockquote>
+<p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- <span class="number">1.</span>授权</span><br><span class="line">GRANT &lt;权限&gt;[,&lt;权限&gt;]…</span><br><span class="line">[ON &lt;对象类型&gt; &lt;对象名&gt;]</span><br><span class="line">TO &lt;用户&gt;[,&lt;用户&gt;]…</span><br><span class="line">[WITH GRANT OPTION]</span><br><span class="line">-- 2.收回授权</span><br><span class="line">REVOKE &lt;权限&gt;[,&lt;权限&gt;]…</span><br><span class="line">[ON &lt;对象类型&gt; &lt;对象名&gt;]</span><br><span class="line">FROM &lt;用户&gt;[,&lt;用户&gt;]…</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>WITH GRANT OPTION：若指定此子句，表示该用户可以将权限赋给其他用户</p>
+</blockquote>
+<p>示例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 授权</span><br><span class="line">GRANT SELECT,INSERT,UPDATE ON TABLE TO USER_Admin WITH GRANT OPTION</span><br><span class="line">-- 收回授权</span><br><span class="line">REVOKE SELECT,INSERT,UPDATE ON TABLE FROM USER_Admin</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>数据库是应用最广泛的计算机软件</p>
+</blockquote>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>数据库现在主要分 关系型数据库（传统） 和 NoSQL（新式比如 mongodb）和一些其他数据库（比如 fb 的图数据库）<br>～　常用的关系型数据库有 mysql postgresql sqlite 等</p>
+</blockquote>
+<blockquote>
+<p>几种关系型数据库的用法和 sql 语法都极度相似<br>开发中一般会用 sqlite 数据库<br>部署到服务器上的时候才会使用 mysql 等数据库<br>当然 mysql 已经不适合这个版本了<br>对于 node 来说, mongo 是非常方便的<br>MEAN 技术栈 = mongo + express + angular + node</p>
+</blockquote>
+<h3 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>sqlite 直接用 yarn 安装模块<br>并且需要安装一个叫 sqlitebrowser 的管理软件</p>
+<p>mongodb 需要安装，链接如下<br>软件本身<br><a href="http://www.runoob.com/mongodb/mongodb-window-install.html" target="_blank" rel="noopener">http://www.runoob.com/mongodb/mongodb-window-install.html</a><br>管理软件<br><a href="https://robomongo.org/download" target="_blank" rel="noopener">https://robomongo.org/download</a></p>
+<p>mac 下安装 mongo</p>
+<ol>
+<li>brew install mongodb</li>
+<li>brew cask install launchrocket</li>
+<li>在[设置]底部那一栏里找到 launchrocket, 点击进去之后, 就可以看到 mongodb 了<br>点击 start 就可以了</li>
+</ol>
+<p>window 下 yarn install better-sqlite3 失败的解决方式</p>
+<ol>
+<li>用管理员身份打开命令行, 切换到项目目录</li>
+<li>yarn global add windows-build-tools</li>
+<li>安装 python2.7 并且设置环境变量</li>
+<li>yarn install</li>
+</ol>
+<p>如果还是失败的话, 从 <a href="http://landinghub.visualstudio.com/visual-cpp-build-tools" target="_blank" rel="noopener">http://landinghub.visualstudio.com/visual-cpp-build-tools</a> 下载 Visual C++ Build Tools 2015 并且安装<br>然后执行 yarn install</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Database = <span class="built_in">require</span>(<span class="string">'better-sqlite3'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> db = <span class="keyword">new</span> Database(<span class="string">'node8.db'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> log = <span class="built_in">console</span>.log.bind(<span class="built_in">console</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建表的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">create</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="comment">// 创建表的 sql 语句</span></span><br><span class="line"><span class="keyword">const</span> sqlCreate = <span class="string">`</span></span><br><span class="line"><span class="string">CREATE TABLE users (</span></span><br><span class="line"><span class="string">    id	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,</span></span><br><span class="line"><span class="string">    username	TEXT NOT NULL UNIQUE,</span></span><br><span class="line"><span class="string">    password	TEXT NOT NULL,</span></span><br><span class="line"><span class="string">    email	TEXT</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="comment">// db.prepare 会根据传的 sql 语句创建一个 Statement 对象, 这个对象可以用来执行 sql 语句</span></span><br><span class="line"><span class="keyword">const</span> statement = db.prepare(sqlCreate)</span><br><span class="line"><span class="comment">// 执行 sqlCreate 语句</span></span><br><span class="line"><span class="keyword">const</span> info = statement.run()</span><br><span class="line">log(<span class="string">'创建成功'</span>, info)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 往表里面增加数据的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insert</span>(<span class="params">username, password, email</span>) </span>&#123;</span><br><span class="line"><span class="comment">// 插入数据的 sql 语句</span></span><br><span class="line"><span class="keyword">const</span> sqlInsert = <span class="string">`</span></span><br><span class="line"><span class="string">INSERT INTO</span></span><br><span class="line"><span class="string">    users(username, password, email)</span></span><br><span class="line"><span class="string">VALUES</span></span><br><span class="line"><span class="string">    (?, ?, ?)</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="comment">// 创建 Statement 对象</span></span><br><span class="line"><span class="keyword">const</span> statement = db.prepare(sqlInsert)</span><br><span class="line"><span class="keyword">const</span> args = [username, password, email]</span><br><span class="line"><span class="comment">// insert 语句需要参数, 将参数放在 array 中, 然后调用 run 的时候传过去</span></span><br><span class="line"><span class="comment">// statement.run 的返回值 info 是一个对象</span></span><br><span class="line"><span class="comment">// info.changes 表示这次操作（插入数据、更新数据、删除数据）一共改变了多少行</span></span><br><span class="line"><span class="keyword">const</span> info = statement.run(args)</span><br><span class="line"></span><br><span class="line"><span class="comment">// run 除了接收 array 作为参数, 也可以直接拆开一个一个传</span></span><br><span class="line"><span class="comment">// statement.run(username, password, email)</span></span><br><span class="line">log(<span class="string">'插入数据成功'</span>, info)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询数据的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">select</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="comment">// sql 注入, 非常严重的安全漏洞</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询数据库的 sql 语句</span></span><br><span class="line"><span class="keyword">const</span> sqlQuery = <span class="string">`</span></span><br><span class="line"><span class="string">SELECT</span></span><br><span class="line"><span class="string">    *</span></span><br><span class="line"><span class="string">FROM</span></span><br><span class="line"><span class="string">    users</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="comment">// 创建 Statement 对象</span></span><br><span class="line"><span class="keyword">const</span> statement = db.prepare(sqlQuery)</span><br><span class="line"><span class="comment">// get 方法返回一条数据</span></span><br><span class="line"><span class="comment">// 如果查找出来的有多条, 只返回第一条</span></span><br><span class="line"><span class="keyword">const</span> row = statement.get()</span><br><span class="line"></span><br><span class="line"><span class="comment">// all 方法返回多条数据</span></span><br><span class="line"><span class="keyword">const</span> rows = statement.all()</span><br><span class="line">log(row, rows)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除数据的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">del</span>(<span class="params">userId</span>) </span>&#123;</span><br><span class="line"><span class="comment">// 删除数据的 sql 语句</span></span><br><span class="line"><span class="keyword">const</span> sqlDelete = <span class="string">`</span></span><br><span class="line"><span class="string">DELETE FROM</span></span><br><span class="line"><span class="string">    users</span></span><br><span class="line"><span class="string">WHERE</span></span><br><span class="line"><span class="string">    id=?</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="keyword">const</span> statement = db.prepare(sqlDelete)</span><br><span class="line">    <span class="comment">// 传入 userId</span></span><br><span class="line">    statement.run(userId)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// db.prepare(sqlDelete).run(userId)</span></span><br><span class="line">    log(<span class="string">'删除成功'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新数据的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params">userId, email</span>) </span>&#123;</span><br><span class="line"><span class="comment">// 更新数据的 sql 语句</span></span><br><span class="line"><span class="keyword">const</span> sqlUpdate = <span class="string">`</span></span><br><span class="line"><span class="string">    UPDATE</span></span><br><span class="line"><span class="string">        users</span></span><br><span class="line"><span class="string">    SET</span></span><br><span class="line"><span class="string">        email=?</span></span><br><span class="line"><span class="string">    WHERE</span></span><br><span class="line"><span class="string">        id=?</span></span><br><span class="line"><span class="string">    `</span></span><br><span class="line"><span class="keyword">const</span> statement = db.prepare(sqlUpdate)</span><br><span class="line">    <span class="comment">// 传入 email 和 userId 两个参数</span></span><br><span class="line">    statement.run(email, userId)</span><br><span class="line">    log(<span class="string">'更新成功'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sql/" rel="tag"># sql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/21/nginx/" rel="next" title="nginx">
+                <i class="fa fa-chevron-left"></i> nginx
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/21/前端大杂/" rel="prev" title="前端大杂">
+                前端大杂 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="郭钧豪">
+            
+              <p class="site-author-name" itemprop="name">郭钧豪</p>
+              <p class="site-description motion-element" itemprop="description">路漫漫，其修远</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/guojunhao118" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://guojunhao.lofter.com" target="_blank" title="Lofter">
+                      
+                        <i class="fa fa-fw fa-camera-retro"></i>Lofter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL-语句"><span class="nav-number">1.</span> <span class="nav-text">SQL 语句</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#常用语法"><span class="nav-number"></span> <span class="nav-text">常用语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建表"><span class="nav-number">1.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除表"><span class="nav-number">2.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清空表"><span class="nav-number">3.</span> <span class="nav-text">清空表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改表"><span class="nav-number">4.</span> <span class="nav-text">修改表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL查询语句"><span class="nav-number">5.</span> <span class="nav-text">SQL查询语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL插入语句"><span class="nav-number">6.</span> <span class="nav-text">SQL插入语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL更新语句"><span class="nav-number">7.</span> <span class="nav-text">SQL更新语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL删除语句"><span class="nav-number">8.</span> <span class="nav-text">SQL删除语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建索引"><span class="nav-number">9.</span> <span class="nav-text">创建索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除索引"><span class="nav-number">10.</span> <span class="nav-text">删除索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建视图"><span class="nav-number">11.</span> <span class="nav-text">创建视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除视图"><span class="nav-number">12.</span> <span class="nav-text">删除视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL的访问控制"><span class="nav-number">13.</span> <span class="nav-text">SQL的访问控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">14.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb"><span class="nav-number">15.</span> <span class="nav-text">mongodb</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">15.1.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">16.</span> <span class="nav-text">实例</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭钧豪</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://jasonguo.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://guojunhao118.github.io/2019/01/21/sql/';
+          this.page.identifier = '2019/01/21/sql/';
+          this.page.title = 'sql';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://jasonguo.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

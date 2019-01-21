@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="郭钧豪的博客">
 <meta property="og:description" content="GitHub创建个人仓库 安装Hexo 推送网站 绑定域名 更换主题 问题收集 给自己的Hexo博客加上图片？   参考文档   GitHub创建个人仓库创建新仓库 用户名.github.io (套路) 安装Hexo 安装 12$ npm install -g hexo-cli $ yarn global add hexo-cli  初始化博客 1hexo init &amp;lt;blogname&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-14T02:54:01.602Z">
+<meta property="og:image" content="https://guojunhao118.github.io/2016/11/23/hexo搭建/hexo_yuming.jpg">
+<meta property="og:updated_time" content="2019-01-21T10:55:50.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用github 搭建 hexo">
 <meta name="twitter:description" content="GitHub创建个人仓库 安装Hexo 推送网站 绑定域名 更换主题 问题收集 给自己的Hexo博客加上图片？   参考文档   GitHub创建个人仓库创建新仓库 用户名.github.io (套路) 安装Hexo 安装 12$ npm install -g hexo-cli $ yarn global add hexo-cli  初始化博客 1hexo init &amp;lt;blogname&amp;">
+<meta name="twitter:image" content="https://guojunhao118.github.io/2016/11/23/hexo搭建/hexo_yuming.jpg">
 
 
 
@@ -420,16 +422,28 @@
 <h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><ol>
 <li><p>登录到阿里云，进入管理控制台的域名列表，找到你的个性化域名，进入解析</p>
 </li>
-<li><p>包括添加三条解析记录192.30.252.153是GitHub的地址，你也可以ping你的 <a href="http://xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a> 的ip地址，填入进去。第三个记录类型是CNAME，CNAME的记录值是：你的用户名.<a href="http://github.io" target="_blank" rel="noopener">http://github.io</a> 这里千万别弄错了。</p>
+<li><p>包括添加三条解析记录，192.30.252.153是GitHub的地址，你也可以ping你的 <a href="http://xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a> 的ip地址，填入进去。第三个记录类型是CNAME，CNAME的记录值是：你的用户名.github.io 这里千万别弄错了。第二步，登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名</p>
+<p><img src="/2016/11/23/hexo搭建/hexo_yuming.jpg" alt="域名"></p>
 </li>
 </ol>
 <p>[1] 记录类型：A ， 主机记录：@， 记录值：&lt;你的github地址ip&gt;，解析线路：default</p>
 <p>[2] 记录类型：CNAME ， 主机记录：www， 记录值：&lt;xxx.github.io&gt;，解析线路：default</p>
+<p>[3] 记录类型：A ， 主机记录：@， 记录值：&lt;github地址ip&gt;，解析线路：default</p>
 <ol start="3">
 <li><p>登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名</p>
 </li>
-<li><p>进入本地博客文件夹 ，进入blog/source目录下，创建一个记事本文件，输入你的域名，对，只要写进你自己的域名即可。如果带有www，那么以后访问的时候必须带有www完整的域名才可以访问，但如果不带有www，以后访问的时候带不带www都可以访问。所以建议，不要带有www。这里我还是写了www(不建议带有www)，保存，命名为CNAME ，注意保存成所有文件而不是txt文件</p>
+<li><p>进入本地博客文件夹 ，进入blog/source目录下，创建一个记事本文件，(如果带有www，那么以后访问的时候必须带有www完整的域名才可以访问，但如果不带有www，以后访问的时候带不带www都可以访问。所以建议，不要带有www),保存，命名为CNAME ，注意保存成所有文件而不是txt文件</p>
 </li>
+</ol>
+<ul>
+<li>https </li>
+</ul>
+<p>CloudFlare 给自己的域名加个 s<br>首先，GitHub Pages不支持上传SSL证书。<br>CloudFlare 是一家CDN提供商，它提供了免费的https服务(但不是应用SSL证书)。实现模式就是，用户到CDN服务器的连接为<code>https</code>，而CDN服务器到GithubPage服务器的连接为<code>http</code>，就是在CDN服务器那里加上反向代理。</p>
+<ol>
+<li>注册并登录CloudFlare，并将自己域名下的 name server 修改为 CloudFlare 的 name server。</li>
+<li>在 CloudFlare 的 DNS 设置域名匹配到自己的GithubPage(启用动态DNS加速)。</li>
+<li>在 CloudFlare 的 Crypto 设置 SSL 为 Flexible(等待一定时间实现建立连接后，就可以通过<code>https</code>来访问自己的 GithubPage )。</li>
+<li>在 CloudFlare 的 Page Rules 中设置路由规则。一般情况下，利用Always use https设置两条规则，规则链接分别为 <code>http://域名/*</code> 与 <code>http://域名/</code> (开启https强制跳转)。</li>
 </ol>
 <h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">传送门</a></p>
 <p>可以在blog目录中的themes文件夹中查看你自己主题是什么。现在把默认主题更改成Next主题，在blog目录中（就是命令行的位置处于blog目录）打开命令行输入：</p>
@@ -478,14 +492,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/11/03/工具函数封装/" rel="next" title="工具函数封装">
+                <i class="fa fa-chevron-left"></i> 工具函数封装
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/11/git相关/" rel="prev" title="git相关">
-                git相关 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/17/vue/" rel="prev" title="vue">
+                vue <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -575,7 +593,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -597,7 +615,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
