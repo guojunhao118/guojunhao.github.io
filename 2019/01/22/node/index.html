@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="node,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="nvm 使用 nvm 进行 node 版本切换  安装 nvm 项目地址  安装最新稳定版本的 node 1$ nvm install stable 安装指定版本的 node 1$ nvm install 8.12.0 查看当前 node 版本 1$ nvm current 切换版本 1$ nvm use 8.12.0 列出所有版本 1$ nvm ls">
+<meta name="keywords" content="node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node">
+<meta property="og:url" content="https://guojunhao118.github.io/2019/01/22/node/index.html">
+<meta property="og:site_name" content="郭钧豪的博客">
+<meta property="og:description" content="nvm 使用 nvm 进行 node 版本切换  安装 nvm 项目地址  安装最新稳定版本的 node 1$ nvm install stable 安装指定版本的 node 1$ nvm install 8.12.0 查看当前 node 版本 1$ nvm current 切换版本 1$ nvm use 8.12.0 列出所有版本 1$ nvm ls">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-22T03:07:44.714Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node">
+<meta name="twitter:description" content="nvm 使用 nvm 进行 node 版本切换  安装 nvm 项目地址  安装最新稳定版本的 node 1$ nvm install stable 安装指定版本的 node 1$ nvm install 8.12.0 查看当前 node 版本 1$ nvm current 切换版本 1$ nvm use 8.12.0 列出所有版本 1$ nvm ls">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://guojunhao118.github.io/2019/01/22/node/">
+
+
+
+
+
+  <title>node | 郭钧豪的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">郭钧豪的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://guojunhao118.github.io/2019/01/22/node/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郭钧豪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭钧豪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">node</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-22T10:45:02+08:00">
+                2019-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/22/node/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/22/node/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="nvm"><a href="#nvm" class="headerlink" title="nvm"></a>nvm</h2><blockquote>
+<p>使用 nvm 进行 node 版本切换</p>
+</blockquote>
+<p><strong>安装 <code>nvm</code></strong></p>
+<p><a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">项目地址</a> </p>
+<p><strong>安装最新稳定版本的 <code>node</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm install stable</span><br></pre></td></tr></table></figure>
+<p><strong>安装指定版本的 <code>node</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm install 8.12.0</span><br></pre></td></tr></table></figure>
+<p><strong>查看当前 <code>node</code> 版本</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm current</span><br></pre></td></tr></table></figure>
+<p><strong>切换版本</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm use 8.12.0</span><br></pre></td></tr></table></figure>
+<p><strong>列出所有版本</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm ls</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><p>参考学习：<a href="https://book.douban.com/subject/25863515/" target="_blank" rel="noopener">图解HTTP</a></p>
+<p>示例：<code>http://www.zhihu.com/question/31838184?name=gua</code></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">网址组成</th>
+<th style="text-align:center">协议</th>
+<th style="text-align:center">主机</th>
+<th style="text-align:center">端口</th>
+<th style="text-align:center">路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">参数</td>
+<td style="text-align:center">http</td>
+<td style="text-align:center"><a href="http://www.zhihu.com" target="_blank" rel="noopener">www.zhihu.com</a></td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">/question/31838184</td>
+</tr>
+<tr>
+<td style="text-align:center">详解</td>
+<td style="text-align:center">http&amp;https</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">（http默认80，https默认443）<br>   端口是一个 16 位的数字，所以范围是 0-65535（2<sup>16</sup> ）</td>
+</tr>
+</tbody>
+</table>
+<p>http请求或响应：<br>|  *   |                 请求行或者响应行                 |     Header     |           \r\n\r\n           |               Body                |<br>| :–: | :————————————–: | :————: | :————————–: | :——————————-: |<br>|  描述  |                                          |                |                              |                                   |<br>|  请求  | GET/POST—请求方法 <br>/—路径 <br>HTTP/1.1—协议 | 其中 host 字段是必须的 | 连续两个换行回车符，用来分隔 Header 和 Body |                (可选)                 |<br>|  响应  |   HTTP/1.1—版本<br>301—状态码<br>状态码描述    |                |                              | 浏览器会自己解析 Header 部分，然后将 Body 显示成网页 |</p>
+<h3 id="常用-String-方法"><a href="#常用-String-方法" class="headerlink" title="常用 String 方法"></a>常用 String 方法</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">..</th>
+<th style="text-align:center">startsWith()</th>
+<th style="text-align:center">endsWith()</th>
+<th style="text-align:center">includes()</th>
+<th style="text-align:center">split()</th>
+<th>indexOf()</th>
+<th>slice()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">描述</td>
+<td style="text-align:center">返回布尔值，表示参数字符串是否在源字符串的头部</td>
+<td style="text-align:center">返回布尔值，表示参数字符串是否在源字符串的尾部</td>
+<td style="text-align:center">返回布尔值，表示是否找到了参数字符串</td>
+<td style="text-align:center">分割字符串</td>
+<td>返回某个指定的字符串值在字符串中首次出现的位置<br>没有出现则返回-1</td>
+<td>切片工具</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用-Array-方法"><a href="#常用-Array-方法" class="headerlink" title="常用 Array 方法"></a>常用 Array 方法</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">..</th>
+<th style="text-align:center">concat()</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">描述</td>
+<td style="text-align:center">连接两个或多个数组</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用-Object-方法"><a href="#常用-Object-方法" class="headerlink" title="常用 Object 方法"></a>常用 Object 方法</h3><p><strong>Object.keys()</strong></p>
+<blockquote>
+<p>方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和使用 for…in 循环遍历该对象时返回的顺序一致 （两者的主要区别是 一个 for-in 循环还会枚举其原型链上的属性）</p>
+</blockquote>
+<p><em>EL</em><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</span><br><span class="line">alert(<span class="built_in">Object</span>.keys(arr)); </span><br><span class="line"><span class="comment">// 弹出"0,1,2"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 类数组对象 */</span> </span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="number">0</span> : <span class="string">"a"</span>, <span class="number">1</span> : <span class="string">"b"</span>, <span class="number">2</span> : <span class="string">"c"</span>&#125;;</span><br><span class="line">alert(<span class="built_in">Object</span>.keys(obj)); </span><br><span class="line"><span class="comment">// 弹出"0,1,2"</span></span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">..</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">hasOwnProperty(propertyName)</th>
+<th style="text-align:center">isPrototypeOf(object)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">描述</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">用于检查给定的属性在当前对象实例中（而不是在实例 的原型中）是否存在。其中，作为参数的属性名（propertyName）必须以字符串形式指定（例 如： o.hasOwnProperty(“name”)），返回一个布尔值，指示对象是否具有指定的属性作为自身（不继承）属性。</td>
+<td style="text-align:center">用于检查传入的对象是否是传入对象的原型（第 5 章将讨论原 型）</td>
+</tr>
+<tr>
+<td style="text-align:center">..</td>
+<td style="text-align:center">propertyIsEnumerable(propertyName)</td>
+<td style="text-align:center">toLocaleString()</td>
+<td style="text-align:center">toString()</td>
+</tr>
+<tr>
+<td style="text-align:center">描述</td>
+<td style="text-align:center">用于检查给定的属性是否能够使用 for-in 语句 （本章后面将会讨论）来枚举。与 hasOwnProperty()方法一样，作为参数的属性名必须以字符 串形式指定。</td>
+<td style="text-align:center">返回对象的字符串表示，该字符串与执行环境的地区对应。</td>
+<td style="text-align:center">返回对象的字符串表示。</td>
+</tr>
+<tr>
+<td style="text-align:center">..</td>
+<td style="text-align:center">valueOf()</td>
+<td style="text-align:center">Object.assign</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">描述</td>
+<td style="text-align:center">返回对象的字符串、数值或布尔值表示。通常与 toString()方法的返回值 相同</td>
+<td style="text-align:center">用于将所有可枚举的属性的值从一个或多个源对象复制到目标对象。它将返回目标对象</td>
+</tr>
+</tbody>
+</table>
+<h3 id="RegExp-正则表达式"><a href="#RegExp-正则表达式" class="headerlink" title="RegExp 正则表达式"></a>RegExp <a href="http://www.runoob.com/js/js-regexp.html" target="_blank" rel="noopener">正则表达式</a></h3><ul>
+<li>元字符<br>与其他语言中的正则表达式类似，模式中使用的所有<code>元字符</code>都必须转义。正则表达式中的元字符包括：</li>
+</ul>
+<p><code>( [ { \ ^ $ | ) ? * + . ] }</code></p>
+<ul>
+<li>语法：/<code>Pattern（正则表达式主体）</code>/<code>Property（修饰符-可选）</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reVal = <span class="function">(<span class="params">data, start, end, not</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="keyword">if</span> (not) &#123;</span><br><span class="line">    not = <span class="string">'[^'</span>+ not +<span class="string">']'</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    not = <span class="string">''</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> re = <span class="keyword">new</span> <span class="built_in">RegExp</span>( <span class="string">`<span class="subst">$&#123;start&#125;</span><span class="subst">$&#123;not&#125;</span>([\\s\\S]+?)<span class="subst">$&#123;end&#125;</span>`</span>, <span class="string">'gi'</span> ) <span class="comment">// 全局</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> data === <span class="string">'string'</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> arr = data.match(re)</span><br><span class="line">    <span class="keyword">let</span> result = []</span><br><span class="line">    <span class="keyword">if</span> (arr) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> arr) &#123;</span><br><span class="line">            <span class="keyword">let</span> temp = i.split(start)[<span class="number">1</span>].split(end)[<span class="number">0</span>]</span><br><span class="line">            result.push(temp)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(data)) &#123;</span><br><span class="line">        <span class="keyword">let</span> result = []</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> data) &#123;</span><br><span class="line">            <span class="keyword">let</span> temp = i.match(re)[<span class="number">0</span>].split(start)[<span class="number">1</span>].split(end)[<span class="number">0</span>]</span><br><span class="line">            result.push(temp)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用字符串方法<br>|  .   |               search() 方法                |             replace() 方法             |<br>| :–: | :————————————–: | :———————————-: |<br>|  .   | 用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串，并返回子串的起始位置 | 用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串 |</li>
+<li>使用 RegExp 对象<br>|      |     test()     |      |<br>| :–: | :————: | :–: |<br>|      | 是否匹配某个模式,返回布尔值 |      |</li>
+<li>修饰符</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Property</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">/i</td>
+<td style="text-align:center">无视大小写</td>
+</tr>
+<tr>
+<td style="text-align:center">/g</td>
+<td style="text-align:center">全局匹配</td>
+</tr>
+<tr>
+<td style="text-align:center">/m</td>
+<td style="text-align:center">多行匹配</td>
+</tr>
+<tr>
+<td style="text-align:center">/img</td>
+<td style="text-align:center">组合使用</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>常用<br>|      正则表达式      |            说明             |<br>| :————-: | :———————–: |<br>|      /\w/       |           所有字母            |<br>|      /\d/       |           所有数字            |<br>| /\u4E00-\u9FA5/ |            中文             |<br>| /\u0800-\u4E00/ |            日文             |<br>| /\uAC00-\uD7FF/ |            韩文             |<br>|        .        | 句号表示位于xx之前的任意一个可以构成匹配项的字符 |</li>
+</ul>
+<ul>
+<li>编译：<strong>new RegExp</strong>( <code>Pattern</code>, <code>Property</code> )</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'jasonguo'</span></span><br><span class="line"><span class="keyword">var</span> re = <span class="keyword">new</span> <span class="built_in">RegExp</span>( <span class="string">`<span class="subst">$&#123;name&#125;</span>`</span>, <span class="string">'img'</span> )     <span class="comment">//加变量</span></span><br></pre></td></tr></table></figure>
+<h3 id="File-System-fs-模块"><a href="#File-System-fs-模块" class="headerlink" title="File System (fs 模块)"></a>File System (fs 模块)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.readFileSync(path[, options])        <span class="comment">// 读取系统文件</span></span><br></pre></td></tr></table></figure>
+<h3 id="Buffer-缓冲"><a href="#Buffer-缓冲" class="headerlink" title="Buffer (缓冲)"></a>Buffer (缓冲)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Buffer.from(array)              <span class="comment">// 转换成 buffer 类型</span></span><br><span class="line">Buffer.concat(list[, totalLength])      <span class="comment">// 缓冲区合并</span></span><br></pre></td></tr></table></figure>
+<h3 id="DNS-模块-（用于解析域名）"><a href="#DNS-模块-（用于解析域名）" class="headerlink" title="DNS 模块 （用于解析域名）"></a>DNS 模块 （用于解析域名）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入模块</span></span><br><span class="line"><span class="keyword">const</span> dns = <span class="built_in">require</span>(<span class="string">'dns'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> host = <span class="string">'zhihu.com'</span></span><br><span class="line"></span><br><span class="line">dns.lookup(host, (error, address, family) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'address and family'</span>, address, family)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="使用-node-anywhere-来搭建一个本地服务器"><a href="#使用-node-anywhere-来搭建一个本地服务器" class="headerlink" title="使用 node anywhere 来搭建一个本地服务器"></a>使用 node anywhere 来搭建一个本地服务器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install anywhere -g (全局安装这个模块)</span><br><span class="line">$ anywhere (进入要打开的文件夹下面输入)</span><br></pre></td></tr></table></figure>
+<h3 id="读取路径下所有文件-and-罗列"><a href="#读取路径下所有文件-and-罗列" class="headerlink" title="读取路径下所有文件 and 罗列"></a>读取路径下所有文件 and 罗列</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> path = <span class="string">"./noin"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">explorer</span>(<span class="params">path</span>)</span>&#123;</span><br><span class="line">    fs.readdir(path, <span class="function"><span class="keyword">function</span>(<span class="params">err,files</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(err)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"error:\n"</span>+err);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        files.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">file</span>)</span>&#123;</span><br><span class="line">            fs.stat( (path+<span class="string">"\\"</span>+ file ),<span class="function"><span class="keyword">function</span>(<span class="params">err,stat</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(err)&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(err);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(stat.isDirectory())&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(path+<span class="string">"\\"</span>+file+<span class="string">"\\"</span>);</span><br><span class="line">                explorer(path+<span class="string">"\\"</span>+file);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(path+<span class="string">"\\"</span>+file);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">explorer(path);</span><br></pre></td></tr></table></figure>
+<h3 id="paht-模块"><a href="#paht-模块" class="headerlink" title="paht 模块"></a>paht 模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br></pre></td></tr></table></figure>
+<p>作用：该模块提供了一些用于处理文件路径的小工具<br>path模块功能简介：<a href="http://www.jianshu.com/p/fe41ee02efc8" target="_blank" rel="noopener">http://www.jianshu.com/p/fe41ee02efc8</a><br><a href="http://www.runoob.com/nodejs/nodejs-path-module.html" target="_blank" rel="noopener">http://www.runoob.com/nodejs/nodejs-path-module.html</a></p>
+<h3 id="关于package-json文件"><a href="#关于package-json文件" class="headerlink" title="关于package.json文件"></a>关于package.json文件</h3><p><a href="http://javascript.ruanyifeng.com/nodejs/packagejson.html" target="_blank" rel="noopener">http://javascript.ruanyifeng.com/nodejs/packagejson.html</a></p>
+<h3 id="关于-crypto-加密模块"><a href="#关于-crypto-加密模块" class="headerlink" title="关于 crypto 加密模块"></a>关于 <code>crypto</code> 加密模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> crypto = <span class="built_in">require</span>(<span class="string">'crypto'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> testMd5 = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 选择 md5 摘要算法</span></span><br><span class="line">    <span class="keyword">var</span> algorithm = <span class="string">'md5'</span></span><br><span class="line">    <span class="comment">// 创建 hash 对象</span></span><br><span class="line">    <span class="keyword">var</span> hash = crypto.createHash(algorithm)</span><br><span class="line">    <span class="comment">// 更新 hash 对象</span></span><br><span class="line">    hash.update(s)</span><br><span class="line">    <span class="comment">// log md5 摘要信息, 这里是 c9c1ebed56b2efee7844b4158905d845</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'md5 摘要'</span>, hash.digest(<span class="string">'hex'</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> testSha1 = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 选择 sha1 摘要算法</span></span><br><span class="line">    <span class="keyword">var</span> algorithm = <span class="string">'sha1'</span></span><br><span class="line">    <span class="comment">// 创建 hash 对象</span></span><br><span class="line">    <span class="keyword">var</span> hash = crypto.createHash(algorithm)</span><br><span class="line">    <span class="comment">// 更新 hash 对象</span></span><br><span class="line">    hash.update(s)</span><br><span class="line">    <span class="comment">// log sha1 摘要信息, 这里是 4843c628d74aa10769eb21b832f00a778db8b17e</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'sha1 摘要'</span>, hash.digest(<span class="string">'hex'</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">saltedPassword</span>(<span class="params">password, salt=<span class="string">''</span></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_md5hex</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> hash = crypto.createHash(<span class="string">'md5'</span>)</span><br><span class="line">        hash.update(s)</span><br><span class="line">        <span class="keyword">var</span> h = hash.digest(<span class="string">'hex'</span>)</span><br><span class="line">        <span class="keyword">return</span> h</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> hash1 = _md5hex(password)</span><br><span class="line">    <span class="keyword">var</span> hash2 = _md5hex(password + salt)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hashed password'</span>, hash1, hash2)</span><br><span class="line">    <span class="keyword">return</span> hash2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> testSalt = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    saltedPassword(<span class="string">'12345'</span>, <span class="string">''</span>)</span><br><span class="line">    saltedPassword(<span class="string">'12345'</span>, <span class="string">'abc'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> testRaw = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">hashedPassword</span>(<span class="params">password</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> hash = crypto.createHash(<span class="string">'md5'</span>)</span><br><span class="line">        hash.update(password)</span><br><span class="line">        <span class="keyword">var</span> pwd = hash.digest(<span class="string">'hex'</span>)</span><br><span class="line">        <span class="keyword">return</span> pwd</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// console.time 和 console.timeEnd 组合使用, 会 log 出程序运行的时间</span></span><br><span class="line">    <span class="built_in">console</span>.time(<span class="string">'find password'</span>)</span><br><span class="line">    <span class="keyword">const</span> pwd = <span class="string">'81dc9bdb52d04dc20036dbd8313ed055'</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> s = <span class="built_in">String</span>(i)</span><br><span class="line">        <span class="keyword">var</span> password = hashedPassword(s)</span><br><span class="line">        <span class="keyword">if</span> (password === pwd) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'原始密码是'</span>, s)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">'find password'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> testEncrypt = <span class="function"><span class="keyword">function</span>(<span class="params">s, key</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> algorithm = <span class="string">'aes-256-cbc'</span></span><br><span class="line">    <span class="keyword">var</span> cipher = crypto.createCipher(algorithm, key)</span><br><span class="line">    <span class="keyword">var</span> c = cipher.update(s, <span class="string">'utf8'</span>, <span class="string">'hex'</span>)</span><br><span class="line">    c += cipher.final(<span class="string">'hex'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'加密后的信息'</span>, c)</span><br><span class="line">    <span class="keyword">return</span> c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> testDecrypt = <span class="function"><span class="keyword">function</span>(<span class="params">c, key</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// aes-256-cbc 的加密和解密时间都比较短, 是表现比较不错的算法, 因此用这个演示如果加解密</span></span><br><span class="line">    <span class="keyword">var</span> algorithm = <span class="string">'aes-256-cbc'</span></span><br><span class="line">    <span class="keyword">var</span> decipher = crypto.createDecipher(algorithm, key)</span><br><span class="line">    <span class="comment">// 一定要用这种累加的方式来处理</span></span><br><span class="line">    <span class="comment">// 这里需要注意的是调用 update 函数之后, 返回不一定是加密后的数据</span></span><br><span class="line">    <span class="comment">// 所以要先调用 update, 然后调用 final, 并且把这些结果累加起来</span></span><br><span class="line">    <span class="keyword">var</span> d = decipher.update(c, <span class="string">'hex'</span>, <span class="string">'utf8'</span>)</span><br><span class="line">    d += decipher.final(<span class="string">'utf8'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'原始信息'</span>, d)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 要加密的是 'gua'</span></span><br><span class="line">    <span class="keyword">var</span> s = <span class="string">'gua'</span></span><br><span class="line">    testMd5(s)</span><br><span class="line">    <span class="comment">// testSha1(s)</span></span><br><span class="line">    <span class="comment">// testSalt()</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// var key = 'dududu'</span></span><br><span class="line">    <span class="comment">// var c = testEncrypt(s, key)</span></span><br><span class="line">    <span class="comment">// testDecrypt(c, key)</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// testRaw()</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> hashes = crypto.getHashes()</span><br><span class="line">    <span class="keyword">var</span> ciphers = crypto.getCiphers()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// console.log('hashes and ciphers method', hashes, ciphers)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test()</span><br></pre></td></tr></table></figure>
+<h3 id="exports-和-module-exports-的区别"><a href="#exports-和-module-exports-的区别" class="headerlink" title="exports 和 module.exports 的区别"></a>exports 和 module.exports 的区别</h3><p><a href="http://cnodejs.org/topic/5231a630101e574521e45ef8" target="_blank" rel="noopener">http://cnodejs.org/topic/5231a630101e574521e45ef8</a></p>
+<h3 id="body-parser-Node-js-Express-HTTP请求体解析中间件"><a href="#body-parser-Node-js-Express-HTTP请求体解析中间件" class="headerlink" title="body-parser Node.js(Express) HTTP请求体解析中间件"></a>body-parser Node.js(Express) HTTP请求体解析中间件</h3><p><a href="http://blog.csdn.net/yanyang1116/article/details/54847560" target="_blank" rel="noopener">http://blog.csdn.net/yanyang1116/article/details/54847560</a></p>
+<p>在HTTP请求中，<code>POST</code>、<code>PUT</code> 和 <code>PATCH</code>三种请求方法中包含请求体，Node.js 原生HTTP模块中，请求体要基于流的方式接收和解析。<code>body-parser</code>是一个HTTP请求体解析中间件，使用这个模块可以解析JSON、Raw、文本、URL-encoded格式的请求体，<code>Express</code>框架中就是使用这个模块做为请求体解析中间件。</p>
+<h4 id="1-请求体解析"><a href="#1-请求体解析" class="headerlink" title="1. 请求体解析"></a>1. 请求体解析</h4><h5 id="1-1-原生环境中的解析"><a href="#1-1-原生环境中的解析" class="headerlink" title="1.1 原生环境中的解析"></a>1.1 原生环境中的解析</h5><p>Node.js 原生HTTP模块中，是将用户请求数据封装到了用于请求对象<code>req</code>中，该对象是一个<code>IncomingMessage</code>，该对象同时也是一个<a href="https://itbilu.com/nodejs/core/4y3SPWbS.html#readable" target="_blank" rel="noopener">可读流</a>对象。在原生HTTP服务器，或不依赖第三方解析模块时，可以像下面这样接收并解析请求体：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//用http模块创建一个http服务端 </span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (req.method.toLowerCase() === <span class="string">'post'</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> body = <span class="string">''</span>;   </span><br><span class="line">    req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>)</span>&#123;</span><br><span class="line">      body += chunk;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(req.headers[<span class="string">'content-type'</span>].indexOf(<span class="string">'application/json'</span>)!==<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="comment">// JSON 格式请求体解析</span></span><br><span class="line">        <span class="built_in">JSON</span>.parse(body);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>(req.headers[<span class="string">'content-type'</span>].indexOf(<span class="string">'application/octet-stream'</span>)!==<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="comment">// Raw 格式请求体解析</span></span><br><span class="line">        <span class="comment">// ……</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>(req.headers[<span class="string">'content-type'</span>].indexOf(<span class="string">'text/plain'</span>)!==<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="comment">// text 文本格式请求体解析</span></span><br><span class="line">        <span class="comment">// ……</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>(req.headers[<span class="string">'content-type'</span>].indexOf(<span class="string">'application/x-www-form-urlencoded'</span>)!==<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="comment">// URL-encoded 格式请求体解析</span></span><br><span class="line">        <span class="comment">// ……</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      	<span class="comment">// 其它格式解析</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    res.end(<span class="string">'其它提交方式'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="1-2-使用body-parser解析请求体"><a href="#1-2-使用body-parser解析请求体" class="headerlink" title="1.2 使用body-parser解析请求体"></a>1.2 使用<code>body-parser</code>解析请求体</h5><p><code>body-parser</code>模块是一个<code>Express/Connect</code>中间件，它使用非常简单且功能强大，可以像下面这样用这个模块解析请求体：</p>
+<p><strong>Express/Connect 项层处理</strong></p>
+<p><code>Express</code>框架默认使用<code>body-parser</code>做为请求体解析中间件，创建<a href="https://itbilu.com/nodejs/npm/EJUJrGVsg.html" target="_blank" rel="noopener">Express项目</a>后，可以在<code>app.js</code>文件中看到如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 引入依赖项 */</span></span><br><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="comment">// ……</span></span><br><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> routes = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);</span><br><span class="line"><span class="keyword">var</span> users = <span class="built_in">require</span>(<span class="string">'./routes/users'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">// ……</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析 application/json</span></span><br><span class="line">app.use(bodyParser.json());	</span><br><span class="line"><span class="comment">// 解析 application/x-www-form-urlencoded</span></span><br><span class="line">app.use(bodyParser.urlencoded());</span><br></pre></td></tr></table></figure>
+<p>这样就在项目的<a href="https://itbilu.com/nodejs/npm/VJ5TlyRnl.html" target="_blank" rel="noopener">Application</a>级别，引入了<code>body-parser</code>模块处理请求体。在上述代码中，模块会处理<code>application/x-www-form-urlencoded</code>、<code>application/json</code>两种内容格式的请求体。经过这个中间件处理后，就可以在所有路由处理器的<code>req.body</code>中访问请求参数。</p>
+<p><strong>解析Express具体路由</strong></p>
+<p>在实际应用中，不同路径（路由）可能会要求用户使用不同的内容类型，<code>body-parser</code>还支持为单个<a href="https://itbilu.com/nodejs/npm/Vk96Hcepe.html" target="_blank" rel="noopener">Express</a>路由添加请求体解析：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = express()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建 application/json 解析</span></span><br><span class="line"><span class="keyword">var</span> jsonParser = bodyParser.json()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建 application/x-www-form-urlencoded 解析</span></span><br><span class="line"><span class="keyword">var</span> urlencodedParser = bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// POST /login 获取 URL编码的请求体</span></span><br><span class="line">app.post(<span class="string">'/login'</span>, urlencodedParser, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!req.body) <span class="keyword">return</span> res.sendStatus(<span class="number">400</span>)</span><br><span class="line">  res.send(<span class="string">'welcome, '</span> + req.body.username)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// POST /api/users 获取 JSON 编码的请求体</span></span><br><span class="line">app.post(<span class="string">'/api/users'</span>, jsonParser, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!req.body) <span class="keyword">return</span> res.sendStatus(<span class="number">400</span>)</span><br><span class="line">  <span class="comment">// create user in req.body</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>指定请求类型</strong></p>
+<p><code>body-parser</code>还支持为某一种或一类内容类型的请求体指定解析方式，指定时可以通过在解析方法中添加<code>type</code>参数修改指定<code>Content-Type</code>的解析方式。</p>
+<p>如，可以对<code>text/plain</code>内容类型使用<code>JSON</code>解析：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(bodyParser.json(&#123; <span class="attr">type</span>: <span class="string">'text/plain'</span> &#125;))</span><br></pre></td></tr></table></figure>
+<p>这一选项更多是用在非标准请求头的解析中，如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 解析自定义的 JSON</span></span><br><span class="line">app.use(bodyParser.json(&#123; <span class="attr">type</span>: <span class="string">'application/*+json'</span> &#125;))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析自定义的 Buffer</span></span><br><span class="line">app.use(bodyParser.raw(&#123; <span class="attr">type</span>: <span class="string">'application/vnd.custom-type'</span> &#125;))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将 HTML 请求体做为字符串处理</span></span><br><span class="line">app.use(bodyParser.text(&#123; <span class="attr">type</span>: <span class="string">'text/html'</span> &#125;))</span><br></pre></td></tr></table></figure>
+<h4 id="2-body-parser模块的API"><a href="#2-body-parser模块的API" class="headerlink" title="2. body-parser模块的API"></a>2. <code>body-parser</code>模块的API</h4><p>通过<code>npm install body-parser</code>命令安装模块后，可以通过以下方式获取模块引用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>)</span><br></pre></td></tr></table></figure>
+<p>bodyParser变量是对中间件的引用。请求体解析后，解析值都会被放到req.body属性，内容为空时是一个{}空对象。</p>
+<h5 id="2-1-bodyParser-json-解析JSON格式"><a href="#2-1-bodyParser-json-解析JSON格式" class="headerlink" title="2.1 bodyParser.json() - 解析JSON格式"></a>2.1 bodyParser.json() - 解析JSON格式</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bodyParser.json(options)</span><br></pre></td></tr></table></figure>
+<p>返回一个仅解析<code>json</code>格式数据的中间件。这个方法支持任意Unicode编码的请求体，且支持<code>gzip</code>和<code>deflate</code>编码的数据压缩。</p>
+<p><strong>Option</strong>是一个包含以下可选值的对象</p>
+<ul>
+<li>inflate - 设置为true时，deflate压缩数据会被解压缩；设置为true时，deflate压缩数据会被拒绝。默认为true。</li>
+<li>limit - 设置请求的最大数据量。默认为’100kb’</li>
+<li>reviver - 传递给JSON.parse()方法的第二个参数，详见JSON.parse()</li>
+<li>strict - 设置为true时，仅会解析Array和Object两种格式；设置为false会解析所有JSON.parse支持的格式。默认为true</li>
+<li>type - 该选项用于设置为指定MIME类型的数据使用当前解析中间件。这个选项可以是一个函数或是字符串，当是字符串是会使用type-is来查找MIMI类型；当为函数是，中间件会通过fn(req)来获取实际值。默认为application/json。</li>
+<li>verify - 这个选项仅在verify(req, res, buf, encoding)时受支持</li>
+</ul>
+<h5 id="2-2-bodyParser-raw-解析二进制格式"><a href="#2-2-bodyParser-raw-解析二进制格式" class="headerlink" title="2.2 bodyParser.raw() - 解析二进制格式"></a>2.2 bodyParser.raw() - 解析二进制格式</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bodyParser.raw(options)</span><br></pre></td></tr></table></figure>
+<p>返回一个将所有数据做为<code>Buffer</code>格式处理的中间件。这个方法支持<code>gzip</code>和<code>deflate</code>编码的数据压缩。解析后，其后的所有的<code>req.body</code>中将会是一个Buffer数据。</p>
+<p><strong>Option</strong>是一个包含以下可选值的对象</p>
+<ul>
+<li>inflate - 设置为true时，deflate压缩数据会被解压缩；设置为true时，deflate压缩数据会被拒绝。默认为true。</li>
+<li>limit - 设置请求的最大数据量。默认为’100kb’</li>
+<li>type - 该选项用于设置为指定MIME类型的数据使用当前解析中间件。这个选项可以是一个函数或是字符串，当是字符串是会使用type-is来查找MIMI类型；当为函数是，中间件会通过fn(req)来获取实际值。默认为application/octet-stream。</li>
+<li>verify - 这个选项仅在verify(req, res, buf, encoding)时受支持</li>
+</ul>
+<h5 id="2-3-bodyParser-text-解析文本格式"><a href="#2-3-bodyParser-text-解析文本格式" class="headerlink" title="2.3 bodyParser.text() - 解析文本格式"></a>2.3 bodyParser.text() - 解析文本格式</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bodyParser.text(options)</span><br></pre></td></tr></table></figure>
+<p>返回一个仅处理字符串格式处理的中间件。这个方法支持gzip和deflate编码的数据压缩。解析后，其后的所有的req.body中将会是一个字符串值。</p>
+<p><strong>Option</strong>是一个包含以下可选值的对象</p>
+<ul>
+<li>defaultCharset - 如果Content-Type后没有指定编码时，使用此编码。默认为’utf-8’</li>
+<li>inflate - 设置为true时，deflate压缩数据会被解压缩；设置为true时，deflate压缩数据会被拒绝。默认为true。</li>
+<li>limit - 设置请求的最大数据量。默认为’100kb’</li>
+<li>type - 该选项用于设置为指定MIME类型的数据使用当前解析中间件。这个选项可以是一个函数或是字符串，当是字符串是会使用type-is来查找MIMI类型；当为函数是，中间件会通过fn(req)来获取实际值。默认为application/octet-stream。</li>
+<li>verify - 这个选项仅在verify(req, res, buf, encoding)时受支持</li>
+</ul>
+<h5 id="2-4-bodyParser-urlencoded-解析文本格式"><a href="#2-4-bodyParser-urlencoded-解析文本格式" class="headerlink" title="2.4 bodyParser.urlencoded() - 解析文本格式"></a>2.4 bodyParser.urlencoded() - 解析文本格式</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bodyParser.urlencoded(options)</span><br></pre></td></tr></table></figure>
+<p>返回一个处理urlencoded数据的中间件。这个方法默认使用UTF-8编码，且支持gzip和deflate编码的数据压缩。解析后，其后的所有的req.body中将会是一个键值对对象。</p>
+<p><strong>Option</strong>是一个包含以下可选值的对象</p>
+<ul>
+<li>extended - 当设置为false时，会使用querystring库解析URL编码的数据；当设置为true时，会使用qs库解析URL编码的数据。后没有指定编码时，使用此编码。默认为true</li>
+<li>inflate - 设置为true时，deflate压缩数据会被解压缩；设置为true时，deflate压缩数据会被拒绝。默认为true。</li>
+<li>limit - 设置请求的最大数据量。默认为’100kb’</li>
+<li>parameterLimit - 用于设置URL编码值的最大数据。默认为1000</li>
+<li>type - 该选项用于设置为指定MIME类型的数据使用当前解析中间件。这个选项可以是一个函数或是字符串，当是字符串是会使用type-is来查找MIMI类型；当为函数是，中间件会通过fn(req)来获取实际值。默认为application/octet-stream。</li>
+<li>verify - 这个选项仅在verify(req, res, buf, encoding)时受支持</li>
+</ul>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://www.cnblogs.com/kongxianghai/p/5660101.html" target="_blank" rel="noopener">nvm</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/38395184?utm_source=com.tencent.tim&amp;utm_medium=social&amp;utm_oi=726020689072496640" target="_blank" rel="noopener">nodejs 时间循环机制</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node/" rel="tag"># node</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/22/防抖和节流/" rel="next" title="防抖和节流">
+                <i class="fa fa-chevron-left"></i> 防抖和节流
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/22/webpack/" rel="prev" title="webpack">
+                webpack <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="郭钧豪">
+            
+              <p class="site-author-name" itemprop="name">郭钧豪</p>
+              <p class="site-description motion-element" itemprop="description">路漫漫，其修远</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/guojunhao118" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://guojunhao.lofter.com" target="_blank" title="Lofter">
+                      
+                        <i class="fa fa-fw fa-camera-retro"></i>Lofter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nvm"><span class="nav-number">1.</span> <span class="nav-text">nvm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http协议"><span class="nav-number">1.1.</span> <span class="nav-text">http协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用-String-方法"><span class="nav-number">1.2.</span> <span class="nav-text">常用 String 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用-Array-方法"><span class="nav-number">1.3.</span> <span class="nav-text">常用 Array 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用-Object-方法"><span class="nav-number">1.4.</span> <span class="nav-text">常用 Object 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp-正则表达式"><span class="nav-number">1.5.</span> <span class="nav-text">RegExp 正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File-System-fs-模块"><span class="nav-number">1.6.</span> <span class="nav-text">File System (fs 模块)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Buffer-缓冲"><span class="nav-number">1.7.</span> <span class="nav-text">Buffer (缓冲)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS-模块-（用于解析域名）"><span class="nav-number">1.8.</span> <span class="nav-text">DNS 模块 （用于解析域名）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-node-anywhere-来搭建一个本地服务器"><span class="nav-number">1.9.</span> <span class="nav-text">使用 node anywhere 来搭建一个本地服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取路径下所有文件-and-罗列"><span class="nav-number">1.10.</span> <span class="nav-text">读取路径下所有文件 and 罗列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#paht-模块"><span class="nav-number">1.11.</span> <span class="nav-text">paht 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于package-json文件"><span class="nav-number">1.12.</span> <span class="nav-text">关于package.json文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于-crypto-加密模块"><span class="nav-number">1.13.</span> <span class="nav-text">关于 crypto 加密模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exports-和-module-exports-的区别"><span class="nav-number">1.14.</span> <span class="nav-text">exports 和 module.exports 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#body-parser-Node-js-Express-HTTP请求体解析中间件"><span class="nav-number">1.15.</span> <span class="nav-text">body-parser Node.js(Express) HTTP请求体解析中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-请求体解析"><span class="nav-number">1.15.1.</span> <span class="nav-text">1. 请求体解析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-原生环境中的解析"><span class="nav-number">1.15.1.1.</span> <span class="nav-text">1.1 原生环境中的解析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-使用body-parser解析请求体"><span class="nav-number">1.15.1.2.</span> <span class="nav-text">1.2 使用body-parser解析请求体</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-body-parser模块的API"><span class="nav-number">1.15.2.</span> <span class="nav-text">2. body-parser模块的API</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-bodyParser-json-解析JSON格式"><span class="nav-number">1.15.2.1.</span> <span class="nav-text">2.1 bodyParser.json() - 解析JSON格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-bodyParser-raw-解析二进制格式"><span class="nav-number">1.15.2.2.</span> <span class="nav-text">2.2 bodyParser.raw() - 解析二进制格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-bodyParser-text-解析文本格式"><span class="nav-number">1.15.2.3.</span> <span class="nav-text">2.3 bodyParser.text() - 解析文本格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-bodyParser-urlencoded-解析文本格式"><span class="nav-number">1.15.2.4.</span> <span class="nav-text">2.4 bodyParser.urlencoded() - 解析文本格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-number">1.16.</span> <span class="nav-text">参考文章</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭钧豪</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://jasonguo.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://guojunhao118.github.io/2019/01/22/node/';
+          this.page.identifier = '2019/01/22/node/';
+          this.page.title = 'node';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://jasonguo.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

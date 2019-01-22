@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="webpack,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="其他1.配置错误 The &amp;apos;mode&amp;apos; option has not been set, webpack will fallback to &amp;apos;production&amp;apos; for this value. Set &amp;apos;mode&amp;apos; option to &amp;apos;development&amp;apos; or &amp;apos;production&amp;apos;">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack">
+<meta property="og:url" content="https://guojunhao118.github.io/2019/01/22/webpack/index.html">
+<meta property="og:site_name" content="郭钧豪的博客">
+<meta property="og:description" content="其他1.配置错误 The &amp;apos;mode&amp;apos; option has not been set, webpack will fallback to &amp;apos;production&amp;apos; for this value. Set &amp;apos;mode&amp;apos; option to &amp;apos;development&amp;apos; or &amp;apos;production&amp;apos;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-22T03:13:26.403Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack">
+<meta name="twitter:description" content="其他1.配置错误 The &amp;apos;mode&amp;apos; option has not been set, webpack will fallback to &amp;apos;production&amp;apos; for this value. Set &amp;apos;mode&amp;apos; option to &amp;apos;development&amp;apos; or &amp;apos;production&amp;apos;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://guojunhao118.github.io/2019/01/22/webpack/">
+
+
+
+
+
+  <title>webpack | 郭钧豪的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">郭钧豪的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://guojunhao118.github.io/2019/01/22/webpack/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郭钧豪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭钧豪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">webpack</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-22T10:46:57+08:00">
+                2019-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/22/webpack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/22/webpack/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>1.配置错误</p>
+<pre><code>The &apos;mode&apos; option has not been set, webpack will fallback to &apos;production&apos; for this value. Set &apos;mode&apos; option to &apos;development&apos; or &apos;production&apos; to enable defaults for each environment
+</code></pre><p>只需要在package.json中添加配置项：</p>
+<pre><code>&quot;scripts&quot;: {
+　　&quot;dev&quot;: &quot;webpack --mode development&quot;,
+　　&quot;build&quot;: &quot;webpack --mode production&quot;
+}
+</code></pre><a id="more"></a>
+<p>2.<code>devdependencies</code> 和 <code>dependencies</code></p>
+<p>所谓开发环境，就是指开发阶段，比如webpack，gulp这些工具，都只是在开发阶段需要，一旦项目真正投入使用，便不再依赖这些插件，所以将其安装在devDependencies即可；</p>
+<p>生产环境，则表示项目真正投入使用时，此时仍然需要依赖的插件则需要安装在dependencies中，比如vue，vue-router，jQuery这些，dependencies中没有这些插件，项目真实使用时就会出错。</p>
+<p>3.<code>webpack command not found</code></p>
+<p>解决方案：全局安装 <code>webpack</code>  <code>npm install webpack -g</code></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
+<li><p>source map — 追踪错误和警告在源代码中的原始位置</p>
+</li>
+<li><p>webpack-dev-server — 简单web服务器，实时重新加载</p>
+</li>
+</ul>
+<h2 id="postcss"><a href="#postcss" class="headerlink" title="postcss"></a>postcss</h2><p>安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add webpack style-loader css-loader postcss-loader sass-loader autoprefixer --dev</span><br></pre></td></tr></table></figure></p>
+<h2 id="eslint"><a href="#eslint" class="headerlink" title="eslint"></a>eslint</h2><p><a href="https://cloud.tencent.com/developer/chapter/12618" target="_blank" rel="noopener">中文文档</a></p>
+<p>依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&quot;eslint&quot;: &quot;4.15.0&quot;,</span><br><span class="line">    &quot;eslint-config-standard&quot;: &quot;^10.2.1&quot;,</span><br><span class="line">    &quot;eslint-friendly-formatter&quot;: &quot;^3.0.0&quot;,</span><br><span class="line">    &quot;eslint-loader&quot;: &quot;^1.7.1&quot;,</span><br><span class="line">    &quot;eslint-plugin-import&quot;: &quot;^2.7.0&quot;,</span><br><span class="line">    &quot;eslint-plugin-node&quot;: &quot;^5.2.0&quot;,</span><br><span class="line">    &quot;eslint-plugin-promise&quot;: &quot;^3.4.0&quot;,</span><br><span class="line">    &quot;eslint-plugin-standard&quot;: &quot;^3.0.1&quot;,</span><br><span class="line">    &quot;eslint-plugin-vue&quot;: &quot;^4.0.0&quot;</span><br></pre></td></tr></table></figure>
+<p>eslinttrc.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">// https://eslint.org/docs/user-guide/configuring</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  root: true,</span><br><span class="line">  parserOptions: &#123;</span><br><span class="line">    parser: &apos;babel-eslint&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  env: &#123;</span><br><span class="line">    browser: true,</span><br><span class="line">  &#125;,</span><br><span class="line">  extends: [</span><br><span class="line">    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention</span><br><span class="line">    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.</span><br><span class="line">    &apos;plugin:vue/essential&apos;,</span><br><span class="line">    // https://github.com/standard/standard/blob/master/docs/RULES-en.md</span><br><span class="line">    &apos;standard&apos;</span><br><span class="line">  ],</span><br><span class="line">  // required to lint *.vue files</span><br><span class="line">  plugins: [</span><br><span class="line">    &apos;vue&apos;</span><br><span class="line">  ],</span><br><span class="line">  globals: &#123;</span><br><span class="line">    Vue: true</span><br><span class="line">  &#125;,</span><br><span class="line">  // add your custom rules here</span><br><span class="line">  rules: &#123;</span><br><span class="line">    // allow paren-less arrow functions</span><br><span class="line">    &apos;arrow-parens&apos;: 0,</span><br><span class="line">    // allow async-await</span><br><span class="line">    &apos;generator-star-spacing&apos;: 0,</span><br><span class="line">    // allow debugger during development</span><br><span class="line">    &apos;no-debugger&apos;: process.env.NODE_ENV === &apos;production&apos; ? 2 : 0,</span><br><span class="line">    // 指定数组的元素之间要以空格隔开(,后面)， never参数：[ 之前和 ] 之后不能带空格，always参数：[ 之前和 ] 之后必须带空格</span><br><span class="line">    &quot;array-bracket-spacing&quot;: [2, &quot;never&quot;],</span><br><span class="line">    // 控制逗号前后的空格</span><br><span class="line">    &quot;comma-spacing&quot;: [2, &#123; &quot;before&quot;: false, &quot;after&quot;: true &#125;],</span><br><span class="line">    &quot;indent&quot;: [4, 4, &#123; &quot;SwitchCase&quot;: 0 &#125;],</span><br><span class="line">    //语句强制分号结尾</span><br><span class="line">    //&quot;semi&quot;: [2, &quot;always&quot;],</span><br><span class="line">    &quot;no-unused-vars&quot;: 0,</span><br><span class="line">    //禁止修改const声明的变量</span><br><span class="line">    &quot;no-const-assign&quot;: 2,</span><br><span class="line">    //函数定义时括号前面要不要有空格</span><br><span class="line">    &quot;space-before-function-paren&quot;: [0, &quot;never&quot;],</span><br><span class="line">    // 禁止在非赋值或条件语句中使用 new 操作符</span><br><span class="line">    &quot;no-new&quot;: 0,</span><br><span class="line">    // 禁止对 Function 对象使用 new 操作符</span><br><span class="line">    &quot;no-new-func&quot;: 0,</span><br><span class="line">    // 禁止对 String，Number 和 Boolean 使用 new 操作符</span><br><span class="line">    &quot;no-new-wrappers&quot;: 0,</span><br><span class="line">    &quot;no-control-regex&quot;: 0, //禁止在正则表达式中使用控制字符</span><br><span class="line">    &quot;no-div-regex&quot;: 0, //不能使用看起来像除法的正则表达式/=foo/</span><br><span class="line">    &quot;no-empty-character-class&quot;: 0, //正则表达式中的[]内容不能为空</span><br><span class="line">    &quot;no-invalid-regexp&quot;: 0, //禁止无效的正则表达式</span><br><span class="line">    &quot;no-regex-spaces&quot;: 0, //禁止在正则表达式字面量中使用多个空格 /foo bar/</span><br><span class="line">    &quot;no-useless-escape&quot;: 0,</span><br><span class="line">    &quot;no-unneeded-ternary&quot;: 0,</span><br><span class="line">    &quot;eqeqeq&quot;: 0,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>eslintignore</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/build/</span><br><span class="line">/config/</span><br><span class="line">/dist/</span><br><span class="line">/*.js</span><br></pre></td></tr></table></figure>
+<p>editorconfig</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root = true</span><br><span class="line"></span><br><span class="line">[*]</span><br><span class="line">charset = utf-8</span><br><span class="line">indent_style = space</span><br><span class="line">indent_size = 4</span><br><span class="line">end_of_line = lf</span><br><span class="line">insert_final_newline = true</span><br><span class="line">trim_trailing_whitespace = true</span><br></pre></td></tr></table></figure>
+<h2 id="官方教程踩坑记录"><a href="#官方教程踩坑记录" class="headerlink" title="官方教程踩坑记录"></a>官方教程踩坑记录</h2><p><strong>Cannot read property ‘properties’ of undefined</strong></p>
+<pre><code>解决办法 - 重新安装`webpack-cli`
+1. 删除 node_modules
+2. 删除 package.json 记录
+3. yarn add webpack webpack-cli --dev  重新安装
+</code></pre><p><strong><em>重新生成HTML</em>  HtmlWebpackPlugin</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/22/node/" rel="next" title="node">
+                <i class="fa fa-chevron-left"></i> node
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="郭钧豪">
+            
+              <p class="site-author-name" itemprop="name">郭钧豪</p>
+              <p class="site-description motion-element" itemprop="description">路漫漫，其修远</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/guojunhao118" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://guojunhao.lofter.com" target="_blank" title="Lofter">
+                      
+                        <i class="fa fa-fw fa-camera-retro"></i>Lofter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">1.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#postcss"><span class="nav-number">3.</span> <span class="nav-text">postcss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eslint"><span class="nav-number">4.</span> <span class="nav-text">eslint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#官方教程踩坑记录"><span class="nav-number">5.</span> <span class="nav-text">官方教程踩坑记录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭钧豪</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://jasonguo.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://guojunhao118.github.io/2019/01/22/webpack/';
+          this.page.identifier = '2019/01/22/webpack/';
+          this.page.title = 'webpack';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://jasonguo.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

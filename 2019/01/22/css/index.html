@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="css,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="css基础优先级   定义 优先级从高到低     标签 非常不推荐 &amp;lt; h1 style=&amp;quot;color: red;&amp;quot; &amp;gt; Hello World &amp;lt; /h1 &amp;gt;   内联 &amp;lt; style &amp;gt; h1{ color: red; } &amp;lt; /style &amp;gt;   外联 &amp;lt; link rel=”stylesheet” href=&amp;qu">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css">
+<meta property="og:url" content="https://guojunhao118.github.io/2019/01/22/css/index.html">
+<meta property="og:site_name" content="郭钧豪的博客">
+<meta property="og:description" content="css基础优先级   定义 优先级从高到低     标签 非常不推荐 &amp;lt; h1 style=&amp;quot;color: red;&amp;quot; &amp;gt; Hello World &amp;lt; /h1 &amp;gt;   内联 &amp;lt; style &amp;gt; h1{ color: red; } &amp;lt; /style &amp;gt;   外联 &amp;lt; link rel=”stylesheet” href=&amp;qu">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-22T03:14:08.787Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css">
+<meta name="twitter:description" content="css基础优先级   定义 优先级从高到低     标签 非常不推荐 &amp;lt; h1 style=&amp;quot;color: red;&amp;quot; &amp;gt; Hello World &amp;lt; /h1 &amp;gt;   内联 &amp;lt; style &amp;gt; h1{ color: red; } &amp;lt; /style &amp;gt;   外联 &amp;lt; link rel=”stylesheet” href=&amp;qu">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://guojunhao118.github.io/2019/01/22/css/">
+
+
+
+
+
+  <title>css | 郭钧豪的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">郭钧豪的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://guojunhao118.github.io/2019/01/22/css/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郭钧豪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="郭钧豪的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-22T10:07:23+08:00">
+                2019-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/22/css/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/22/css/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="css基础"><a href="#css基础" class="headerlink" title="css基础"></a>css基础</h2><h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">定义</th>
+<th style="text-align:right">优先级从高到低</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">标签</td>
+<td style="text-align:right">非常不推荐 &lt; h1 <del><code>style=&quot;color: red;&quot;</code></del> &gt; Hello World &lt; /h1 &gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">内联</td>
+<td style="text-align:right">&lt; style &gt; <code>h1{ color: red; }</code> &lt; /style &gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">外联</td>
+<td style="text-align:right">&lt; link rel=”stylesheet” href=<code>&quot;tag.css&quot;</code> &gt;</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h3 id="选择器-amp-权重"><a href="#选择器-amp-权重" class="headerlink" title="选择器&amp;权重"></a><a href="http://www.ruanyifeng.com/blog/2009/03/css_selectors.html" target="_blank" rel="noopener">选择器&amp;权重</a></h3><blockquote>
+<p>举例：&lt;<code>h1</code> id=”<code>id-h1</code>“ class=”<code>class-h1</code>“&gt; 优先级 &lt; /h1&gt;<br><code>权重记忆口诀</code>：从0开始，一个行内样式+1000，一个id+100，一个属性选择器/class或者伪类+10，一个元素名，或者伪元素+1</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元素选择器</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">[优先级从高到低][4]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">！important</td>
+<td style="text-align:center">!important</td>
+<td style="text-align:center">h1{color:red <code>!important</code>;}</td>
+</tr>
+<tr>
+<td style="text-align:center">id选择器</td>
+<td style="text-align:center">#</td>
+<td style="text-align:center"><code>#id-h1</code>{color:red;}</td>
+</tr>
+<tr>
+<td style="text-align:center">class选择器</td>
+<td style="text-align:center">.</td>
+<td style="text-align:center"><code>.class-h1</code>{color:red;}</td>
+</tr>
+<tr>
+<td style="text-align:center">标签选择器</td>
+<td style="text-align:center">直接选择</td>
+<td style="text-align:center"><code>h1</code>{color:red;}</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用css属性"><a href="#常用css属性" class="headerlink" title="常用css属性"></a>常用css属性</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">内容</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">background</td>
+<td style="text-align:center">lightblue</td>
+<td style="text-align:center">背景色</td>
+</tr>
+<tr>
+<td style="text-align:center">margin</td>
+<td style="text-align:center">0px 100%<br>（居中<code>margin:0 auto//注意必须设置width才生效</code>;）</td>
+<td style="text-align:center">外边距</td>
+</tr>
+<tr>
+<td style="text-align:center">border</td>
+<td style="text-align:center"><code>width</code>1px <code>style</code>solid/dashed <code>color</code>red</td>
+<td style="text-align:center">边框样式</td>
+</tr>
+<tr>
+<td style="text-align:center">padding</td>
+<td style="text-align:center">0px</td>
+<td style="text-align:center">内边距</td>
+</tr>
+<tr>
+<td style="text-align:center">font-family</td>
+<td style="text-align:center">Microsoft YaHei</td>
+<td style="text-align:center">字体</td>
+</tr>
+<tr>
+<td style="text-align:center">font-size</td>
+<td style="text-align:center">22px</td>
+<td style="text-align:center">字体大小</td>
+</tr>
+<tr>
+<td style="text-align:center">text-align</td>
+<td style="text-align:center">center</td>
+<td style="text-align:center">文字居中对齐，inline元素的居中</td>
+</tr>
+<tr>
+<td style="text-align:center">z-index</td>
+<td style="text-align:center">100（数字）</td>
+<td style="text-align:center">顶层，最大的值在上面，最小的值被盖住</td>
+</tr>
+<tr>
+<td style="text-align:center">top/bottom/left/right</td>
+<td style="text-align:center">0px</td>
+<td style="text-align:center">顶部</td>
+</tr>
+<tr>
+<td style="text-align:center">width/height</td>
+<td style="text-align:center">100%/100px</td>
+<td style="text-align:center">宽高</td>
+</tr>
+<tr>
+<td style="text-align:center">opacity</td>
+<td style="text-align:center">0.96</td>
+<td style="text-align:center">透明度</td>
+</tr>
+<tr>
+<td style="text-align:center">background</td>
+<td style="text-align:center">black</td>
+<td style="text-align:center">背景色</td>
+</tr>
+<tr>
+<td style="text-align:center">color</td>
+<td style="text-align:center">white</td>
+<td style="text-align:center">字体颜色</td>
+</tr>
+<tr>
+<td style="text-align:center">vertical-align</td>
+<td style="text-align:center"><code>vertical-align:text-top//贴吧插入表情用这种</code></td>
+<td style="text-align:center">设置元素的垂直对齐方式</td>
+</tr>
+<tr>
+<td style="text-align:center">cursor</td>
+<td style="text-align:center">显示光标类型</td>
+<td style="text-align:center">显示手指（pointer）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>outline和border的区别<blockquote>
+<p><strong>outline和border的区别</strong><br>1.outline是不占空间的，既不会增加额外的width或者height<br>2.outline有可能是非矩形的</p>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>outline 的效果将随元素的focus而自动出现，相应的由blur而自动消失。这些都是浏览器的默认行为，无需JavaScript配合CSS来控制。</li>
+</ol>
+<ul>
+<li>水平垂直居中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">// 确定容器的宽高 宽500 高 300 的层</span><br><span class="line">// 设置层的外边距</span><br><span class="line"></span><br><span class="line">div &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width:500px;</span><br><span class="line">    height:300px;</span><br><span class="line">    top: 50%;</span><br><span class="line">    left: 50%;</span><br><span class="line">    margin: -150px 0 0 -250px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 二</span><br><span class="line">// 未知容器的宽高，利用 `transform` 属性</span><br><span class="line"></span><br><span class="line">div &#123;</span><br><span class="line">    position: absolute; </span><br><span class="line">    width:500px;</span><br><span class="line">    height:300px;</span><br><span class="line">    top: 50%;</span><br><span class="line">    left: 50%;</span><br><span class="line">    transform: translate(-50%, -50%);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 水平垂直居中三</span><br><span class="line">// 利用 flex 布局</span><br><span class="line">// 实际使用时应考虑兼容性</span><br><span class="line"></span><br><span class="line">.container &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    align-items: center;        /* 垂直居中 */</span><br><span class="line">    justify-content: center;    /* 水平居中 */</span><br><span class="line">&#125;</span><br><span class="line">.container div &#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 四</span><br><span class="line">// 让绝对定位的div居中</span><br><span class="line">div &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    margin: auto;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><ul>
+<li><p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="noopener">flex布局(阮一峰)</a></p>
+</li>
+<li><p><a href="http://flexboxfroggy.com/" target="_blank" rel="noopener">flex布局练习（青蛙教程）</a></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">说明</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>项目排列</strong></td>
+<td style="text-align:center"><strong>横向</strong></td>
+<td style="text-align:center"><strong>横向逆转</strong></td>
+<td><strong>纵向</strong></td>
+<td><strong>纵向逆转</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">flex-direction</td>
+<td style="text-align:center">row</td>
+<td style="text-align:center">row-reverse</td>
+<td>column</td>
+<td>column-reverse</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>主轴上的对齐方式</strong></td>
+<td style="text-align:center"><strong>左对齐</strong></td>
+<td style="text-align:center"><strong>右对齐</strong></td>
+<td><strong>居中对齐</strong></td>
+<td><strong>两端对齐</strong></td>
+<td><strong>每个项目两侧的间隔相等</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">justify-content</td>
+<td style="text-align:center">flex-start</td>
+<td style="text-align:center">flex-end</td>
+<td>center</td>
+<td>space-between</td>
+<td>space-around</td>
+</tr>
+<tr>
+<td style="text-align:center">交叉轴上如何对齐</td>
+<td style="text-align:center"><strong>起点对齐</strong></td>
+<td style="text-align:center"><strong>终点对齐</strong></td>
+<td><strong>中心对齐</strong></td>
+<td>项目的第一行文字的基线对齐</td>
+<td>如果项目未设置高度或设为auto，将占满整个容器的高度</td>
+</tr>
+<tr>
+<td style="text-align:center">align-items</td>
+<td style="text-align:center">flex-start</td>
+<td style="text-align:center">flex-end</td>
+<td>center</td>
+<td>baseline</td>
+<td>stretch</td>
+</tr>
+<tr>
+<td style="text-align:center">一条轴线排不下，如何换行</td>
+<td style="text-align:center">不换行</td>
+<td style="text-align:center">换行</td>
+<td>逆转换行</td>
+</tr>
+<tr>
+<td style="text-align:center">flex-wrap</td>
+<td style="text-align:center">nowrap</td>
+<td style="text-align:center">wrap</td>
+<td>wrap-reverse</td>
+</tr>
+<tr>
+<td style="text-align:center">多轴线对齐方式</td>
+<td style="text-align:center">起点对齐</td>
+<td style="text-align:center">终点对齐</td>
+<td>中心对齐</td>
+<td>两端对齐</td>
+<td>每个项目两侧的间隔相等</td>
+<td>自动填满</td>
+</tr>
+<tr>
+<td style="text-align:center">align-content</td>
+<td style="text-align:center">flex-start</td>
+<td style="text-align:center">flex-end</td>
+<td>center</td>
+<td>space-between</td>
+<td>space-around</td>
+<td>stretch</td>
+</tr>
+</tbody>
+</table>
+<p><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0</p>
+<p><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code></p>
+<ul>
+<li><a href="http://zh.learnlayout.com/no-layout.html" target="_blank" rel="noopener">学习CSS布局</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line"><span class="comment">// flex 可以让它里面的元素(这里是 content 和 sidebar)使用 flex 布局</span></span><br><span class="line"><span class="comment">// flex是弹性盒子，CSS3的新元素</span></span><br><span class="line"></span><br><span class="line">display: flex;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 高度 100 像素</span></span><br><span class="line"></span><br><span class="line">height: <span class="number">100</span>px;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 宽度 80% </span></span><br><span class="line"></span><br><span class="line">width: <span class="number">80</span>%;</span><br><span class="line"></span><br><span class="line"><span class="comment">// margin: 0 auto 用来居中这个东西 </span></span><br><span class="line"></span><br><span class="line">margin: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// content 占了 5 份</span></span><br><span class="line">.content &#123;</span><br><span class="line">    flex-grow: <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// sidebar 占了 1 份 </span></span><br><span class="line">.sidebar &#123;</span><br><span class="line">    flex-grow: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.index &#123;</span><br><span class="line">    flex-grow: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">:link</th>
+<th style="text-align:center">:visited</th>
+<th style="text-align:center">:hover</th>
+<th style="text-align:center">:active</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">未访问</td>
+<td style="text-align:center">已访问</td>
+<td style="text-align:center">悬停</td>
+<td style="text-align:center">选定</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a:link   &#123; color: white; text-decoration: none; &#125; /*去下划线*/</span><br><span class="line">a:visited&#123; color: black; &#125;</span><br><span class="line">a:hover  &#123; color: red; &#125;</span><br><span class="line">a:active &#123; color: lightblue; &#125;</span><br><span class="line">a.<span class="keyword">class</span>:visited &#123;color: white;&#125;    /* 独立伪类 */</span><br></pre></td></tr></table></figure>
+<h3 id="浏览器前缀"><a href="#浏览器前缀" class="headerlink" title="浏览器前缀"></a>浏览器前缀</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">前缀</th>
+<th style="text-align:center">所属浏览器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-ms-</td>
+<td style="text-align:center">ie</td>
+</tr>
+<tr>
+<td style="text-align:center">-webkit-</td>
+<td style="text-align:center">chrome、safari</td>
+</tr>
+<tr>
+<td style="text-align:center">-moz-</td>
+<td style="text-align:center">firefox</td>
+</tr>
+</tbody>
+</table>
+<h3 id="颜色转换"><a href="#颜色转换" class="headerlink" title="颜色转换"></a>颜色转换</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">十进制</th>
+<th style="text-align:center">十六进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">b</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">c</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">d</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">e</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">f</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>屏幕等发光体是rgb三原色，（0,0,0）单色发光数值为0，故不发光，为黑色，（255,255,255）发光数值最高，为白色</p>
+</blockquote>
+<h3 id="关于position定位"><a href="#关于position定位" class="headerlink" title="关于position定位"></a>关于position定位</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">relative</td>
+<td style="text-align:center">相对定位，相对于它的默认位置移动，不会影响页面布局(还会占有原来的空间)</td>
+</tr>
+<tr>
+<td style="text-align:center">absolute</td>
+<td style="text-align:center">绝对定位，使用绝对定位，必须先在父元素（不能是static）设置相对定位，脱离了文档流</td>
+</tr>
+<tr>
+<td style="text-align:center">fixed</td>
+<td style="text-align:center">相对于窗口来定位,所以它永远不会移动，一般设置top,left属性</td>
+</tr>
+<tr>
+<td style="text-align:center">inherit</td>
+<td style="text-align:center">规定应该从父元素继承 position 属性的值</td>
+</tr>
+<tr>
+<td style="text-align:center">static</td>
+<td style="text-align:center">位于正常的文档流中，由浏览器控制位置，无法设置top等属性</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>非 static 元素可以用 top left bottom right 属性来设置坐标<br>非 static 元素可以用 z-index 属性来设置显示层次<br>absolute 完全绝对定位, 忽略其他所有东西往上浮动到 非 static 的元素</p>
+</blockquote>
+<h3 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h3><pre><code>overflow属性
+    visible 默认
+    auto 需要的时候加滚动条
+    hidden 隐藏多余元素
+    scroll 就算用不着也会强制加滚动条
+</code></pre><h2 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h2><ul>
+<li><p><a href="http://css3generator.com/" target="_blank" rel="noopener">css3 新功能dome</a></p>
+</li>
+<li><p>CCS3动画</p>
+</li>
+</ul>
+<p><a href="http://www.ruanyifeng.com/blog/2014/02/css_transition_and_animation.html" target="_blank" rel="noopener">css3 动画资料, 这篇文章几乎是最全面最方便的, 了解原理</a></p>
+<p>css3 动画库<br><a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener">https://daneden.github.io/animate.css/</a><br><a href="http://velocityjs.org/" target="_blank" rel="noopener">http://velocityjs.org/</a></p>
+<p><a href="http://cssanimate.com/" target="_blank" rel="noopener">css3 动画生成器, 这是一个做动画的玩具</a></p>
+<p>元素中心旋转示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    width:200px;</span><br><span class="line">    height:200px;</span><br><span class="line">    background-color:cadetblue;</span><br><span class="line">    animation:rotate360 2s infinite liner;</span><br><span class="line">&#125;</span><br><span class="line">// 注册动画</span><br><span class="line">@keyframes rotate360 &#123;</span><br><span class="line">    from &#123;</span><br><span class="line">        transform:rotate(0deg);</span><br><span class="line">    &#125;</span><br><span class="line">    to &#123;</span><br><span class="line">        transform:rotate(360deg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="CSS实战应用"><a href="#CSS实战应用" class="headerlink" title="CSS实战应用"></a>CSS实战应用</h2><ul>
+<li>清除 select 样式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">select &#123;</span><br><span class="line"><span class="comment">/*Chrome 和 Firefox里面的边框是不一样的，所以复写了一下*/</span></span><br><span class="line">  border: solid 1px #000;</span><br><span class="line">  <span class="comment">/*很关键：将默认的select选择框样式清除*/</span></span><br><span class="line">  appearance:none;</span><br><span class="line">  -moz-appearance:none;</span><br><span class="line">  -webkit-appearance:none;</span><br><span class="line">  <span class="comment">/*在选择框的最右侧中间显示小箭头图片*/</span></span><br><span class="line">  background: url(<span class="string">"http://ourjs.github.io/static/2015/arrow.png"</span>) no-repeat scroll right center transparent;</span><br><span class="line">  <span class="comment">/*为下拉小箭头留出一点位置，避免被文字覆盖*/</span></span><br><span class="line">  padding-right: <span class="number">14</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>or<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">background: transparent;</span><br><span class="line">width: <span class="number">96</span>px;</span><br><span class="line">padding: <span class="number">5</span>px;</span><br><span class="line">font-size: <span class="number">14</span>px;</span><br><span class="line">border: 1px solid #ccc;</span><br><span class="line">height: <span class="number">34</span>px;</span><br><span class="line">-webkit-appearance: none;</span><br><span class="line">outline-style: none;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>消除transition闪屏<br>  .css {</p>
+<pre><code>-webkit-transform-style: preserve-3d;
+-webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
+</code></pre><p>  }<br>  过渡动画（在没有启动硬件加速的情况下）会出现抖动的现象， 以上的 解决方案只是改变 视角 来启动硬件加速的一种方式；<br>  启动硬件加速的 另外一种方式： </p>
+<pre><code>.css {
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+</code></pre><p>  启动硬件加速<br>  最常用的方式：translate3d、translateZ、transform</p>
+<p>  opacity属性/过渡动画（需要动画执行的过程中才会创建合成层，动画没有开始或结束后元素还会回到之前的状态）</p>
+<p>  will-chang属性（这个比较偏僻），一般配合opacity与translate使用（而且经测试，除了上述可以引发硬件加速的属性外，<br>  其它属性并不会变成复合层），</p>
+<p>  弊端： 硬件加速会导致 CPU性能占用量过大，电池电量消耗加大 ；因此 尽量避免泛滥使用硬件加速。</p>
+</li>
+<li><p>图文不可复制</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-webkit-user-select: none; </span><br><span class="line">-ms-user-select: none;</span><br><span class="line">-moz-user-select: none;</span><br><span class="line">-khtml-user-select: none;</span><br><span class="line">user-select: none;</span><br></pre></td></tr></table></figure>
+<pre><code>1、答案区域监听copy事件，并阻止这个事件的默认行为。
+2、获取选中的内容（window.getSelection()）加上版权信息，然后设置到剪切板（clipboarddata.setData()）。
+</code></pre><ul>
+<li>ios input 样式失效问题</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=button]</span>, <span class="selector-tag">input</span><span class="selector-attr">[type=submit]</span>, <span class="selector-tag">input</span><span class="selector-attr">[type=file]</span>,<span class="selector-tag">button</span> &#123; </span><br><span class="line"><span class="attribute">cursor</span>: pointer; <span class="attribute">-webkit-appearance</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:disabled</span>&#123;</span><br><span class="line"><span class="attribute">background-color</span>: <span class="number">#C0C0C0</span><span class="meta">!important</span>;</span><br><span class="line"><span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重置input和textarea的默认样式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">input,button,select,textarea&#123;outline:none&#125;</span><br><span class="line">textarea&#123;resize:none&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>checkbox 重置样式<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"checkbox_main"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">class</span>=<span class="string">"u_checkbox"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.checkbox_main</span> &#123;</span><br><span class="line">    .u_checkbox &#123;</span><br><span class="line">        <span class="selector-tag">appearance</span>: <span class="selector-tag">none</span>;</span><br><span class="line">        <span class="selector-tag">-webkit-appearance</span>: <span class="selector-tag">none</span>;</span><br><span class="line">        <span class="selector-tag">outline</span>: <span class="selector-tag">none</span>;</span><br><span class="line">        <span class="selector-tag">display</span>: <span class="selector-tag">none</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.u_checkbox</span> + <span class="selector-tag">b</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">0.36rem</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">0.36rem</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: red;</span><br><span class="line">        <span class="attribute">display</span>: inline-block;</span><br><span class="line">        <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">'~image/checkbox.png'</span>) no-repeat;</span><br><span class="line">        <span class="attribute">background-position-x</span>: <span class="number">0px</span>;</span><br><span class="line">        <span class="attribute">background-position-y</span>: -<span class="number">25px</span>;</span><br><span class="line">        <span class="attribute">background-size</span>: cover;</span><br><span class="line">        <span class="attribute">position</span>: relative;</span><br><span class="line">        <span class="attribute">top</span>: <span class="number">3px</span>;</span><br><span class="line">        <span class="attribute">background-position</span>: <span class="number">100%</span> <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">margin-right</span>: <span class="number">0.1rem</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-class">.u_checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-tag">b</span> &#123;</span><br><span class="line">        <span class="attribute">background-position</span>: <span class="number">0</span> <span class="number">0</span> <span class="meta">!important</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>弹窗样式</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.present_show</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">99999</span>;</span><br><span class="line">    .present_show_main &#123;</span><br><span class="line">        <span class="selector-tag">background</span><span class="selector-pseudo">:rgba(0</span>,0,0,1);</span><br><span class="line">        <span class="selector-tag">opacity</span><span class="selector-pseudo">:0.5</span>;</span><br><span class="line">        <span class="selector-tag">width</span>: 100%;</span><br><span class="line">        <span class="selector-tag">height</span>: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.present_show_block</span> &#123;</span><br><span class="line">        <span class="attribute">position</span>: fixed;</span><br><span class="line">        <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%,-50%);</span><br><span class="line">        <span class="attribute">width</span>:<span class="number">6.8rem</span>;</span><br><span class="line">        <span class="attribute">height</span>:<span class="number">5.4rem</span>;</span><br><span class="line">        <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="移动端"><a href="#移动端" class="headerlink" title="移动端"></a>移动端</h2><ul>
+<li>引入代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 针对移动端优化</span><br><span class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span> /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性解释</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>width=device-width</td>
+<td>设置viewport宽度，为一个正整数，或字符串<code>device-width</code></td>
+</tr>
+<tr>
+<td>height=device-height</td>
+<td>置viewport高度，一般设置了宽度，会自动解析出高度，可以不用设置</td>
+</tr>
+<tr>
+<td>initial-scale</td>
+<td>默认缩放比例（初始缩放比例），为一个数字，可以带小数</td>
+</tr>
+<tr>
+<td>minimum-scale</td>
+<td>允许用户最小缩放比例，为一个数字，可以带小数</td>
+</tr>
+<tr>
+<td>maximum-scale</td>
+<td>允许用户最大缩放比例，为一个数字，可以带小数</td>
+</tr>
+<tr>
+<td>user-scalable</td>
+<td>是否允许手动缩放</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>响应式布局</li>
+</ul>
+<p>1.媒体查询<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 引入代码</span><br><span class="line"><span class="meta">@media all and (min-width: 200px) and (max-width: 300px)&#123;</span></span><br><span class="line">body &#123;</span><br><span class="line">    background: red;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="移动端问题"><a href="#移动端问题" class="headerlink" title="移动端问题"></a>移动端问题</h3><p>移动端1px方案</p>
+<p>边框 （安卓与低版本IOS不适用）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.border &#123; border: 1px solid #999 &#125;</span><br><span class="line">@media screen and (-webkit-min-device-pixel-ratio: <span class="number">2</span>) &#123;</span><br><span class="line">    .border &#123; border: 0.5px solid #999 &#125;</span><br><span class="line">&#125;</span><br><span class="line">@media screen and (-webkit-min-device-pixel-ratio: <span class="number">3</span>) &#123;</span><br><span class="line">    .border &#123; border: 0.333333px solid #999 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>css 0.5像素 （不适用于圆角）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">box&#123;</span><br><span class="line">    <span class="comment">//先给元素设置定位,除了static都可以</span></span><br><span class="line">    position:relative;</span><br><span class="line">&#125;</span><br><span class="line">.box1::before&#123;</span><br><span class="line">    <span class="comment">//追加一个空</span></span><br><span class="line">    content: <span class="string">''</span>;</span><br><span class="line">    <span class="comment">//设置定位</span></span><br><span class="line">    position: absolute;</span><br><span class="line">    <span class="comment">//如果不设置可能会出现偏移</span></span><br><span class="line">    top: <span class="number">0</span>;  </span><br><span class="line">    left: <span class="number">0</span>;  </span><br><span class="line">    <span class="comment">//设置边框</span></span><br><span class="line">    border: 1px solid #000;  </span><br><span class="line">    <span class="comment">//设置为插入元素的两倍宽高</span></span><br><span class="line">    width: <span class="number">200</span>%;    </span><br><span class="line">    height: <span class="number">200</span>%;</span><br><span class="line">    <span class="comment">//设置元素的基点为0 0</span></span><br><span class="line">    transform-origin: <span class="number">0</span> <span class="number">0</span>;   </span><br><span class="line">    <span class="comment">//宽高缩小一半</span></span><br><span class="line">    transform: scale(<span class="number">0.5</span>,<span class="number">0.5</span>); </span><br><span class="line">    <span class="comment">//设置盒模型 这一步必须要有,否则边框不会随着一起缩放</span></span><br><span class="line">    box-sizing: border-box;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="rem-布局"><a href="#rem-布局" class="headerlink" title="rem 布局"></a>rem 布局</h3><p><a href="https://github.com/amfe/lib-flexible" target="_blank" rel="noopener">淘宝解决方案</a></p>
+<p><a href="https://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html" target="_blank" rel="noopener">https://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html</a></p>
+<p><a href="https://www.jianshu.com/p/985d26b40199" target="_blank" rel="noopener">https://www.jianshu.com/p/985d26b40199</a></p>
+<p>rem进阶</p>
+<p>放到 HTML 的 head 标签中即可（注:不要手动设置viewport，该方案自动帮你设置）</p>
+<p>代码原理</p>
+<p>这是阿里团队的高清方案布局代码，所谓高清方案就是根据设备屏幕的DPR（设备像素比，又称DPPX，比如dpr=2时，表示1个CSS像素由4个物理像素点组成）<strong> 动态设置 html 的font-size, 同时根据设备DPR调整页面的缩放值，进而达到高清效果</strong>。</p>
+<p><strong>绝不是每个地方都要用rem，rem只适用于固定尺寸</strong>    </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">! <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">t</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (i[a]) <span class="keyword">return</span> i[a].exports;</span><br><span class="line"><span class="keyword">var</span> n = i[a] = &#123;</span><br><span class="line">    exports: &#123;&#125;,</span><br><span class="line">    id: a,</span><br><span class="line">    loaded: !<span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">return</span> e[a].call(n.exports, n, n.exports, t), n.loaded = !<span class="number">0</span>, n.exports</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> i = &#123;&#125;;</span><br><span class="line"><span class="keyword">return</span> t.m = e, t.c = i, t.p = <span class="string">""</span>, t(<span class="number">0</span>)</span><br><span class="line">&#125;([<span class="function"><span class="keyword">function</span>(<span class="params">e, t</span>) </span>&#123;</span><br><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(t, <span class="string">"__esModule"</span>, &#123;</span><br><span class="line">value: !<span class="number">0</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> i = <span class="built_in">window</span>;</span><br><span class="line">t[<span class="string">"default"</span>] = i.flex = <span class="function"><span class="keyword">function</span>(<span class="params">e, t</span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> a = e || <span class="number">100</span>,</span><br><span class="line">    n = t || <span class="number">1</span>,</span><br><span class="line">    r = i.document,</span><br><span class="line">    o = navigator.userAgent,</span><br><span class="line">    d = o.match(<span class="regexp">/Android[\S\s]+AppleWebkit\/(\d&#123;3&#125;)/i</span>),</span><br><span class="line">    l = o.match(<span class="regexp">/U3\/((\d+|\.)&#123;5,&#125;)/i</span>),</span><br><span class="line">    c = l &amp;&amp; <span class="built_in">parseInt</span>(l[<span class="number">1</span>].split(<span class="string">"."</span>).join(<span class="string">""</span>), <span class="number">10</span>) &gt;= <span class="number">80</span>,</span><br><span class="line">    p = navigator.appVersion.match(<span class="regexp">/(iphone|ipad|ipod)/gi</span>),</span><br><span class="line">    s = i.devicePixelRatio || <span class="number">1</span>;</span><br><span class="line">p || d &amp;&amp; d[<span class="number">1</span>] &gt; <span class="number">534</span> || c || (s = <span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> u = <span class="number">1</span> / s,</span><br><span class="line">    m = r.querySelector(<span class="string">'meta[name="viewport"]'</span>);</span><br><span class="line">m || (m = r.createElement(<span class="string">"meta"</span>), m.setAttribute(<span class="string">"name"</span>, <span class="string">"viewport"</span>), r.head.appendChild(m)), m.setAttribute(<span class="string">"content"</span>, <span class="string">"width=device-width,user-scalable=no,initial-scale="</span> + u + <span class="string">",maximum-scale="</span> + u + <span class="string">",minimum-scale="</span> + u), r.documentElement.style.fontSize = a / <span class="number">2</span> * s * n + <span class="string">"px"</span></span><br><span class="line">&#125;, e.exports = t[<span class="string">"default"</span>]</span><br><span class="line">&#125;]);</span><br><span class="line">flex(<span class="number">100</span>, <span class="number">1</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="vm布局"><a href="#vm布局" class="headerlink" title="vm布局"></a>vm布局</h3><p><code>rem</code> 布局方案现在已经落后，开始使用 <code>vm</code> 布局方案</p>
+<p><a href="https://www.w3cplus.com/mobile/vw-layout-in-vue.html" target="_blank" rel="noopener">https://www.w3cplus.com/mobile/vw-layout-in-vue.html</a></p>
+<h2 id="资源收集"><a href="#资源收集" class="headerlink" title="资源收集"></a>资源收集</h2><ul>
+<li>小程序图标</li>
+</ul>
+<p><a href="https://jingyan.baidu.com/article/d5a880eba54e3713f147cc91.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/d5a880eba54e3713f147cc91.html</a></p>
+<p><a href="https://transfonter.org" target="_blank" rel="noopener">https://transfonter.org</a></p>
+<ul>
+<li>loading</li>
+</ul>
+<p><a href="https://loading.io/" target="_blank" rel="noopener">https://loading.io/</a></p>
+<ul>
+<li>css属性大全</li>
+</ul>
+<p><a href="https://cssreference.io/" target="_blank" rel="noopener">https://cssreference.io/</a></p>
+<ul>
+<li>css之预处理器</li>
+</ul>
+<p><a href="http://efe.baidu.com/blog/revisiting-css-preprocessors/" target="_blank" rel="noopener">http://efe.baidu.com/blog/revisiting-css-preprocessors/</a></p>
+<ul>
+<li>css 规范</li>
+</ul>
+<p><a href="http://nec.netease.com/standard/css-sort.html" target="_blank" rel="noopener">http://nec.netease.com/standard/css-sort.html</a></p>
+<ul>
+<li>CSS相关工具</li>
+</ul>
+<p><a href="http://pxtoem.com/" target="_blank" rel="noopener">px,em,rem 单位转换工具</a></p>
+<ul>
+<li>插件</li>
+</ul>
+<p><a href="http://fancybox.net" target="_blank" rel="noopener">fancyBox 丰富的弹出层效果</a></p>
+<p><a href="https://icomoon.io/" target="_blank" rel="noopener">icomoon</a></p>
+<p>主页 =&gt; icomoon app =&gt; <a href="https://icomoon.io/app" target="_blank" rel="noopener">https://icomoon.io/app</a> =&gt; imports icons (导入图标) =&gt; generate font (生成图标字体)</p>
+<p><a href="https://purecss.io/" target="_blank" rel="noopener">pure</a></p>
+<p><a href="http://www.bootcss.com" target="_blank" rel="noopener">Bootstrap</a></p>
+<p><a href="http://ui-cloud.com/browse/" target="_blank" rel="noopener">http://ui-cloud.com/browse/</a></p>
+<p><a href="http://www.material-ui.com/#/" target="_blank" rel="noopener">Material-UI</a> </p>
+<p><a href="http://sui.taobao.org/sui/docs/index.html" target="_blank" rel="noopener">SUI</a> </p>
+<p><a href="http://weixin.yoby123.cn/weui/" target="_blank" rel="noopener">微信ui-demo</a> </p>
+<p><a href="http://fontawesome.dashgame.com" target="_blank" rel="noopener">css图标库</a></p>
+<p><a href="http://www.iconfont.cn/plus" target="_blank" rel="noopener">阿里巴巴图标库</a></p>
+<p><a href="http://www.1024i.com/demo/less/" target="_blank" rel="noopener">less学习网址</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/20903085" target="_blank" rel="noopener">配置less</a></p>
+<p><a href="http://koala-app.com/" target="_blank" rel="noopener">less入门工具</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/21/读书指南/" rel="next" title="读书指南">
+                <i class="fa fa-chevron-left"></i> 读书指南
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/22/防抖和节流/" rel="prev" title="防抖和节流">
+                防抖和节流 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="郭钧豪">
+            
+              <p class="site-author-name" itemprop="name">郭钧豪</p>
+              <p class="site-description motion-element" itemprop="description">路漫漫，其修远</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/guojunhao118" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://guojunhao.lofter.com" target="_blank" title="Lofter">
+                      
+                        <i class="fa fa-fw fa-camera-retro"></i>Lofter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#css基础"><span class="nav-number">1.</span> <span class="nav-text">css基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优先级"><span class="nav-number">1.1.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器-amp-权重"><span class="nav-number">1.2.</span> <span class="nav-text">选择器&amp;权重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用css属性"><span class="nav-number">1.3.</span> <span class="nav-text">常用css属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局"><span class="nav-number">1.4.</span> <span class="nav-text">布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类"><span class="nav-number">1.5.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器前缀"><span class="nav-number">1.6.</span> <span class="nav-text">浏览器前缀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#颜色转换"><span class="nav-number">1.7.</span> <span class="nav-text">颜色转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于position定位"><span class="nav-number">1.8.</span> <span class="nav-text">关于position定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#overflow"><span class="nav-number">1.9.</span> <span class="nav-text">overflow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3"><span class="nav-number">2.</span> <span class="nav-text">CSS3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS实战应用"><span class="nav-number">3.</span> <span class="nav-text">CSS实战应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端"><span class="nav-number">4.</span> <span class="nav-text">移动端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端问题"><span class="nav-number">4.1.</span> <span class="nav-text">移动端问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem-布局"><span class="nav-number">4.2.</span> <span class="nav-text">rem 布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vm布局"><span class="nav-number">4.3.</span> <span class="nav-text">vm布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源收集"><span class="nav-number">5.</span> <span class="nav-text">资源收集</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭钧豪</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://jasonguo.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://guojunhao118.github.io/2019/01/22/css/';
+          this.page.identifier = '2019/01/22/css/';
+          this.page.title = 'css';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://jasonguo.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

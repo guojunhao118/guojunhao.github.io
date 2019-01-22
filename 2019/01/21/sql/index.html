@@ -393,7 +393,7 @@
 <p>INTEGER 整数类型 NOT NULL 非空 PRIMARY KEY 主键 AUTOINCREMENT 自增 UNIQUE 唯一的</p>
 </blockquote>
 <p>语法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;(&lt;列名&gt; &lt;数据类型&gt;[列级完整性约束条件]</span><br><span class="line">              [,&lt;列名&gt; &lt;数据类型&gt;[列级完整性约束条件]]…);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &lt;表名&gt;(<span class="xml"><span class="tag">&lt;<span class="name">列名</span>&gt;</span> <span class="tag">&lt;<span class="name">数据类型</span>&gt;</span>[列级完整性约束条件]</span></span><br><span class="line"><span class="xml">              [,<span class="tag">&lt;<span class="name">列名</span>&gt;</span> <span class="tag">&lt;<span class="name">数据类型</span>&gt;</span>[列级完整性约束条件]]…);</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 创建学生表</span><br><span class="line">CREATE TABLE Student</span><br><span class="line">(</span><br><span class="line">Id INT NOT NULL UNIQUE PRIMARY KEY,</span><br><span class="line">Name VARCHAR(<span class="number">20</span>) NOT NULL,</span><br><span class="line">Age INT NULL,</span><br><span class="line">Gender VARCHAR(<span class="number">4</span>) NULL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><p>语法</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
@@ -402,7 +402,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TRUNCATE TABLE &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 删除学生表</span><br><span class="line">TRUNCATE TABLE Student;</span><br></pre></td></tr></table></figure>
 <h3 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h3><p>语法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 添加列</span><br><span class="line">ALTER TABLE &lt;表名&gt; [ADD &lt;新列名&gt; &lt;数据类型&gt;[列级完整性约束条件]]</span><br><span class="line">-- 删除列</span><br><span class="line">ALTER TABLE &lt;表名&gt; [DROP COLUMN &lt;列名&gt;]</span><br><span class="line">-- 修改列</span><br><span class="line">ALTER TABLE &lt;表名&gt; [MODIFY COLUMN &lt;列名&gt; &lt;数据类型&gt; [列级完整性约束条件]]</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 添加列</span><br><span class="line">ALTER TABLE &lt;表名&gt; [ADD &lt;新列名&gt; <span class="xml"><span class="tag">&lt;<span class="name">数据类型</span>&gt;</span>[列级完整性约束条件]]</span></span><br><span class="line"><span class="xml">-- 删除列</span></span><br><span class="line"><span class="xml">ALTER TABLE <span class="tag">&lt;<span class="name">表名</span>&gt;</span> [DROP COLUMN <span class="tag">&lt;<span class="name">列名</span>&gt;</span>]</span></span><br><span class="line"><span class="xml">-- 修改列</span></span><br><span class="line"><span class="xml">ALTER TABLE <span class="tag">&lt;<span class="name">表名</span>&gt;</span> [MODIFY COLUMN <span class="tag">&lt;<span class="name">列名</span>&gt;</span> <span class="tag">&lt;<span class="name">数据类型</span>&gt;</span> [列级完整性约束条件]]</span></span><br></pre></td></tr></table></figure>
 <p>示例</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-- 添加学生表<span class="string">`Phone`</span>列</span><br><span class="line">ALTER TABLE Student ADD Phone VARCHAR(<span class="number">15</span>) NULL;</span><br><span class="line">-- 删除学生表<span class="string">`Phone`</span>列</span><br><span class="line">ALTER TABLE Student DROP COLUMN Phone;</span><br><span class="line">-- 修改学生表<span class="string">`Phone`</span>列</span><br><span class="line">ALTER TABLE Student MODIFY Phone VARCHAR(<span class="number">13</span>) NULL;</span><br></pre></td></tr></table></figure>
 <h3 id="SQL查询语句"><a href="#SQL查询语句" class="headerlink" title="SQL查询语句"></a>SQL查询语句</h3><p>语法</p>
@@ -437,7 +437,7 @@
 <p>示例</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 删除Id小于<span class="number">10</span>的数据记录</span><br><span class="line">DELETE FROM Student WHERE Id&lt;<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><p>语法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE [UNIQUE] [CLUSTER] INDEX &lt;索引名&gt; ON &lt;表名&gt;(&lt;列名&gt;[&lt;次序&gt;][,&lt;列名&gt;[&lt;次序&gt;]]…);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE [UNIQUE] [CLUSTER] INDEX &lt;索引名&gt; ON &lt;表名&gt;(<span class="xml"><span class="tag">&lt;<span class="name">列名</span>&gt;</span>[<span class="tag">&lt;<span class="name">次序</span>&gt;</span>][,<span class="tag">&lt;<span class="name">列名</span>&gt;</span>[<span class="tag">&lt;<span class="name">次序</span>&gt;</span>]]…);</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>UNIQUE：表明此索引的每一个索引值只对应唯一的数据记录<br>CLUSTER：表明建立的索引是聚集索引<br>次序：可选ASC(升序)或DESC(降序)，默认ASC</p>
 </blockquote>
@@ -461,7 +461,7 @@
 <p>访问控制是控制用户的数据存储权限，由DBA来决定。<br>SQL标准语句包括SELECT、INSERT、UPDATE和DELETE</p>
 </blockquote>
 <p>语法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- <span class="number">1.</span>授权</span><br><span class="line">GRANT &lt;权限&gt;[,&lt;权限&gt;]…</span><br><span class="line">[ON &lt;对象类型&gt; &lt;对象名&gt;]</span><br><span class="line">TO &lt;用户&gt;[,&lt;用户&gt;]…</span><br><span class="line">[WITH GRANT OPTION]</span><br><span class="line">-- 2.收回授权</span><br><span class="line">REVOKE &lt;权限&gt;[,&lt;权限&gt;]…</span><br><span class="line">[ON &lt;对象类型&gt; &lt;对象名&gt;]</span><br><span class="line">FROM &lt;用户&gt;[,&lt;用户&gt;]…</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-- <span class="number">1.</span>授权</span><br><span class="line">GRANT &lt;权限&gt;[,&lt;权限&gt;]…</span><br><span class="line">[ON &lt;对象类型&gt; <span class="xml"><span class="tag">&lt;<span class="name">对象名</span>&gt;</span>]</span></span><br><span class="line"><span class="xml">TO <span class="tag">&lt;<span class="name">用户</span>&gt;</span>[,<span class="tag">&lt;<span class="name">用户</span>&gt;</span>]…</span></span><br><span class="line"><span class="xml">[WITH GRANT OPTION]</span></span><br><span class="line"><span class="xml">-- 2.收回授权</span></span><br><span class="line"><span class="xml">REVOKE <span class="tag">&lt;<span class="name">权限</span>&gt;</span>[,<span class="tag">&lt;<span class="name">权限</span>&gt;</span>]…</span></span><br><span class="line"><span class="xml">[ON <span class="tag">&lt;<span class="name">对象类型</span>&gt;</span> <span class="tag">&lt;<span class="name">对象名</span>&gt;</span>]</span></span><br><span class="line"><span class="xml">FROM <span class="tag">&lt;<span class="name">用户</span>&gt;</span>[,<span class="tag">&lt;<span class="name">用户</span>&gt;</span>]…</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>WITH GRANT OPTION：若指定此子句，表示该用户可以将权限赋给其他用户</p>
 </blockquote>
@@ -624,7 +624,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -646,7 +646,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
