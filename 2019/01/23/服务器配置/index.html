@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="域名购买 域名购买(腾讯云买 .cc 域名)VPS购买, 可以用下面的服务(论坛使用的主机商), 2.5刀/月的即可http://www.vultr.com/?ref=6991688地址选 日本, 如果不能访问, 那么就删除再新建一个  安装必备软件 配置ssh-key  123456789101112131415161718192021222324252627282930313233343536">
+<meta name="description" content="域名购买 域名购买(腾讯云买 .cc 域名)VPS购买, 可以用下面的服务(论坛使用的主机商), 2.5刀/月的即可http://www.vultr.com/?ref=6991688地址选 日本, 如果不能访问, 那么就删除再新建一个">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务器配置">
 <meta property="og:url" content="https://guojunhao118.github.io/2019/01/23/服务器配置/index.html">
 <meta property="og:site_name" content="暮雪的博客">
-<meta property="og:description" content="域名购买 域名购买(腾讯云买 .cc 域名)VPS购买, 可以用下面的服务(论坛使用的主机商), 2.5刀/月的即可http://www.vultr.com/?ref=6991688地址选 日本, 如果不能访问, 那么就删除再新建一个  安装必备软件 配置ssh-key  123456789101112131415161718192021222324252627282930313233343536">
+<meta property="og:description" content="域名购买 域名购买(腾讯云买 .cc 域名)VPS购买, 可以用下面的服务(论坛使用的主机商), 2.5刀/月的即可http://www.vultr.com/?ref=6991688地址选 日本, 如果不能访问, 那么就删除再新建一个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-23T07:22:19.500Z">
+<meta property="og:updated_time" content="2019-02-27T02:41:20.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器配置">
-<meta name="twitter:description" content="域名购买 域名购买(腾讯云买 .cc 域名)VPS购买, 可以用下面的服务(论坛使用的主机商), 2.5刀/月的即可http://www.vultr.com/?ref=6991688地址选 日本, 如果不能访问, 那么就删除再新建一个  安装必备软件 配置ssh-key  123456789101112131415161718192021222324252627282930313233343536">
+<meta name="twitter:description" content="域名购买 域名购买(腾讯云买 .cc 域名)VPS购买, 可以用下面的服务(论坛使用的主机商), 2.5刀/月的即可http://www.vultr.com/?ref=6991688地址选 日本, 如果不能访问, 那么就删除再新建一个">
 
 
 
@@ -355,10 +355,12 @@
         <h2 id="域名购买"><a href="#域名购买" class="headerlink" title="域名购买"></a>域名购买</h2><blockquote>
 <p>域名购买(腾讯云买 .cc 域名)<br>VPS购买, 可以用下面的服务(论坛使用的主机商), 2.5刀/月的即可<br><a href="http://www.vultr.com/?ref=6991688" target="_blank" rel="noopener">http://www.vultr.com/?ref=6991688</a><br>地址选 日本, 如果不能访问, 那么就删除再新建一个</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="安装必备软件"><a href="#安装必备软件" class="headerlink" title="安装必备软件"></a>安装必备软件</h2><ul>
 <li>配置ssh-key</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ===</span></span><br><span class="line"><span class="comment">// 生成 ssh-key</span></span><br><span class="line"><span class="comment">// ===</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Mac 用户直接打开终端输入命令</span></span><br><span class="line"><span class="comment">// Win 打开 cmder 程序, 在里面输入下面的命令</span></span><br><span class="line"></span><br><span class="line">$ ssh-keygen -C &lt;这里是你自己随便起的名字&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 会提示你生成的文件的地址, 并且让你输入密码, 你不要输入密码, 直接回车</span></span><br><span class="line"></span><br><span class="line">$ 回车</span><br><span class="line"></span><br><span class="line">$ ls (查看所有的文件)</span><br><span class="line"></span><br><span class="line">$ cd .ssh\ (进入存储密钥的文件夹)</span><br><span class="line"></span><br><span class="line">$ ls (查看文件)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这样你就得到了一对 ssh-key, 这是用于登录服务器用的</span></span><br><span class="line"><span class="comment">// 默认你会得到两个文件</span></span><br><span class="line"><span class="comment">// id_rsa 是私钥 自己保存 不要给别人看</span></span><br><span class="line"><span class="comment">// id_rsa.pub 是公钥, 是要到处使用的</span></span><br><span class="line"><span class="comment">// 这个是我们之前提到的非对称加密</span></span><br><span class="line"></span><br><span class="line">$ cat id_rsa.pub (将公钥打印出来，复制保存起来)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// ===</span></span><br><span class="line"><span class="comment">// 重建服务器并且配置 ssh-key</span></span><br><span class="line"><span class="comment">// ===</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 去 vultr 的管理界面</span></span><br><span class="line"><span class="comment">// 先删除(Destory)现有的服务器</span></span><br><span class="line"><span class="comment">// 新建服务器的时候, 把刚才生成的 id_rsa.pub 文件(用 atom/webstorm 可以打开)里面的内容加入到 ssh-key 步骤中</span></span><br><span class="line"><span class="comment">// 这样你就可以不用密码, 自动登录服务器了</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果你不想重建服务器, 配置 ssh-key 的方法如下</span></span><br><span class="line"><span class="comment">// 在服务器把本机生成的 public key 添加到 /root/.ssh/authorized_keys 文件中</span></span><br><span class="line"><span class="comment">// 1 用 root 用户登录到服务器, 创建 .ssh 目录</span></span><br><span class="line">$ cd /root</span><br><span class="line">$ mkdir .ssh</span><br><span class="line"><span class="comment">// 2 编辑 authorized_keys 文件, 把刚才生成的 id_rsa.pub 文件里面的内容粘贴进去并保存退出</span></span><br><span class="line"><span class="comment">// 注意, 这里可以粘贴多个 key, 一行一个</span></span><br><span class="line">$ nano .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<!--more-->
 <ul>
 <li><p>安装zsh</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install zsh</span><br><span class="line"><span class="comment">// 安装 oh-my-zsh 配置(方便你使用命令行的配置)</span></span><br><span class="line">$ wget https:<span class="comment">//github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span></span><br></pre></td></tr></table></figure>
@@ -411,6 +413,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/05/python/" rel="prev" title="python">
+                python <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -499,7 +505,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -521,7 +527,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
